@@ -30,5 +30,5 @@ public class Token {
     private TokenType tokenType;
 
     @ManyToOne
-    private User user;
+    private User users;
 }

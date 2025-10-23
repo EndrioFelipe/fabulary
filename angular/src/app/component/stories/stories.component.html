@@ -1,0 +1,13 @@
+<section class="stories">
+  <div class="overlay">
+    <h1 class="title">Contos</h1>
+
+    <div class="story-list">
+      <div class="story-card" *ngFor="let story of stories">
+        <h2>{{ story.title }}</h2>
+        <p class="excerpt">{{ story.excerpt }}</p>
+        <button class="btn" (click)="openStory(story)">Ler conto</button>
+      </div>
+    </div>
+  </div>
+</section>

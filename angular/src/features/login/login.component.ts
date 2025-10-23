@@ -37,11 +37,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.validateForm.value).pipe(takeUntil(this.destroyService.onDestroy$)).subscribe(
       {
         next: (response) => {
-          this.authService.loginUser(response.token, response.name);
-          this.router.navigate(["/"]);
+          this.router.navigate(['/']);
           this.roleService.setUserRole(response.role);
           console.log(response.role);
-          this.reset();
+          this.validateForm.reset();
         },
         error(err) {
           console.error(err);

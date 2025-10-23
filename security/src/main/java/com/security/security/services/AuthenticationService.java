@@ -148,7 +148,7 @@ public class AuthenticationService {
         }
 
         private Token createToken(User savedUser, String refreshToken, TokenType bearer) {
-                return Token.builder().user(savedUser)
+                return Token.builder().users(savedUser)
                                 .tokenType(TokenType.BEARER)
                                 .revoked(false)
                                 .expired(false)

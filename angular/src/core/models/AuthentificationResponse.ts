@@ -1,5 +1,6 @@
-export class AuthenticationResponse{
-    name!:string;
-    role!:string;
-    token!:string;
+export interface AuthenticationResponse {
+  name: string;
+  role: string;
+  access_token: string;
+  refresh_token: string;
 }

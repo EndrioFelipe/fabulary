@@ -16,13 +16,19 @@ import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
 import { NoAuthGuard } from './core/guards/noAuth/no-auth.guard';
 import { AccessComponent } from './features/access/access.component';
+import { HelloComponent } from './features/hello/hello.component';
+import { LandingComponent } from './app/component/landing/landing.component';
+import { StoriesComponent } from './app/component/stories/stories.component';
 
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [UserGuard] },
+    { path: '', component: LandingComponent, pathMatch: 'full' },     
+    { path: 'home', component: HomeComponent, canActivate: [UserGuard] },
+    { path: 'stories', component: StoriesComponent }, 
     { path: 'signup', component: RegisterComponent,canActivate:[UserGuard] },
     { path: 'access', component: AccessComponent,canActivate:[UserGuard] },
     { path: 'login', component: LoginComponent,canActivate:[NoAuthGuard] },
+    { path: 'hello', component: HelloComponent, canActivate:[UserGuard] },
 ];
 
 bootstrapApplication(AppComponent, {
@@ -35,3 +41,5 @@ bootstrapApplication(AppComponent, {
     ]
 })
     .catch(err => console.error(err));
+
+    
