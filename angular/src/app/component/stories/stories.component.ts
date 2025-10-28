@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StoriesService } from '../../core/services/stories.service';
+import { Story } from '../../core/models/story.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stories',
@@ -8,15 +11,41 @@ import { CommonModule } from '@angular/common';
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.css']
 })
-export class StoriesComponent {
+export class StoriesComponent implements OnInit {
 
-  stories = [
-    { title: 'A Sombra e o Espelho', excerpt: 'Um conto sobre a dualidade e o que se esconde no reflexo...' },
-    { title: 'As Vozes do Bosque', excerpt: 'Entre as árvores, ecos de histórias antigas ainda sussurram.' },
-    { title: 'O Círculo da Lua', excerpt: 'Um ritual, um segredo e uma escolha que nunca pode ser desfeita.' },
-  ];
+  stories: Story[] = [];
+  loading = false;
+  error: string | null = null;
 
-  openStory(story: any) {
+  constructor(private storiesService: StoriesService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.loadStories();
+  }
+
+  loadStories(): void {
+    this.loading = true;
+    this.error = null;
+
+    this.storiesService.getAll().subscribe({
+      next: (data) => {
+        this.stories = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os contos:', err);
+        this.error = 'Não foi possível carregar os contos.';
+        this.loading = false;
+      }
+    });
+  }
+
+  openStory(story: Story): void {
     alert(`Abrindo: ${story.title}`);
   }
+
+  createStory(): void {
+    this.router.navigate(['/stories/new']);
+  }
+
 }

@@ -1,0 +1,18 @@
+<section class="story-form">
+  <h1>Novo Conto</h1>
+  <div class="overlay">
+  <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Título</label>
+      <input id="title" type="text" formControlName="title" />
+    </div>
+
+    <div>
+      <label for="content">Texto</label>
+      <textarea id="content" rows="8" formControlName="content"></textarea>
+    </div>
+
+    <button type="submit" [disabled]="storyForm.invalid">Salvar</button>
+  </form>
+  </div>
+</section>

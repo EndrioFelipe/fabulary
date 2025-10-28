@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface Story {
-  id?: number;
-  title: string;
-  excerpt: string;
-  content?: string;
-}
+import { Story } from '../models/story.model';
 
 @Injectable({
   providedIn: 'root'

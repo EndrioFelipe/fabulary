@@ -19,12 +19,14 @@ import { AccessComponent } from './features/access/access.component';
 import { HelloComponent } from './features/hello/hello.component';
 import { LandingComponent } from './app/component/landing/landing.component';
 import { StoriesComponent } from './app/component/stories/stories.component';
+import { StoryFormComponent } from './app/component/stories/story-form/story-form.component';
 
 
 const routes: Routes = [
     { path: '', component: LandingComponent, pathMatch: 'full' },     
     { path: 'home', component: HomeComponent, canActivate: [UserGuard] },
     { path: 'stories', component: StoriesComponent }, 
+    { path: 'stories/new', component: StoryFormComponent },
     { path: 'signup', component: RegisterComponent,canActivate:[UserGuard] },
     { path: 'access', component: AccessComponent,canActivate:[UserGuard] },
     { path: 'login', component: LoginComponent,canActivate:[NoAuthGuard] },

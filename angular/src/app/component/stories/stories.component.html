@@ -2,12 +2,18 @@
   <div class="overlay">
     <h1 class="title">Contos</h1>
 
-    <div class="story-list">
+    <div *ngIf="loading" class="loading">Carregando...</div>
+    <div *ngIf="error" class="error" style="color: white;">{{ error }}</div>
+    
+    <div class="story-list" *ngIf="!loading && !error">
       <div class="story-card" *ngFor="let story of stories">
         <h2>{{ story.title }}</h2>
         <p class="excerpt">{{ story.excerpt }}</p>
         <button class="btn" (click)="openStory(story)">Ler conto</button>
       </div>
+    </div>
+    <div class="actions">
+      <button class="btn" (click)="createStory()">Novo conto</button>
     </div>
   </div>
 </section>
