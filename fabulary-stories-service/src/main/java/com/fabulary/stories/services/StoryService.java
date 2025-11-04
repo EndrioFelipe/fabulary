@@ -1,46 +1,45 @@
 package com.fabulary.stories.services;
 
-
 import com.fabulary.stories.models.Story;
 import com.fabulary.stories.repository.StoryRepository;
+import com.fabulary.stories.events.StoryCreatedEvent;
+import com.fabulary.stories.events.StoryProducer;
 import org.springframework.stereotype.Service;
-
+import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StoryService {
 
     private final StoryRepository repository;
+    private final StoryProducer producer;
 
-    public StoryService(StoryRepository repository) {
+    // 🧰 Injetamos o StoryProducer (o carteiro)
+    public StoryService(StoryRepository repository, StoryProducer producer) {
         this.repository = repository;
-    }
-
-    public List<Story> getAll() {
-        return repository.findAll();
-    }
-
-    public Optional<Story> getById(Long id) {
-        return repository.findById(id);
+        this.producer = producer;
     }
 
     public Story create(Story story) {
-        return repository.save(story);
-    }
+       //salva no banco primeiro o conto
+        Story saved = repository.save(story);
 
-    public Story update(Long id, Story storyData) {
-        return repository.findById(id)
-                .map(story -> {
-                    story.setTitle(storyData.getTitle());
-                    story.setExcerpt(storyData.getExcerpt());
-                    story.setContent(storyData.getContent());
-                    return repository.save(story);
-                })
-                .orElseThrow(() -> new RuntimeException("Story not found"));
-    }
+        // ✉️ 2. Depois, criamos o "conteúdo da carta" (o evento que será enviado ao Kafka).
+        StoryCreatedEvent event = new StoryCreatedEvent(
+                saved.getId(),
+                saved.getTitle(),
+                saved.getContent(),
+                1L, // aqui futuramente pode ser o ID do autor (por exemplo o codigo vindo do token JWT)
+                Instant.now()
+        );
 
-    public void delete(Long id) {
-        repository.deleteById(id);
+        // 🚚 3. agora o "carteiro" (producer) leva a carta até a "caixa de correio" story.created.
+        producer.publishCreated(event);
+
+        return saved;
+    }
+    public List<Story> findAll() {
+        // 🔍 aqui pra recuperar todos os contos do banco sem enviar nada ao Kafka
+        return repository.findAll();
     }
 }

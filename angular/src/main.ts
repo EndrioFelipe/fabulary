@@ -18,14 +18,14 @@ import { NoAuthGuard } from './core/guards/noAuth/no-auth.guard';
 import { AccessComponent } from './features/access/access.component';
 import { HelloComponent } from './features/hello/hello.component';
 import { LandingComponent } from './app/component/landing/landing.component';
-import { StoriesComponent } from './app/component/stories/stories.component';
 import { StoryFormComponent } from './app/component/stories/story-form/story-form.component';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
     { path: '', component: LandingComponent, pathMatch: 'full' },     
     { path: 'home', component: HomeComponent, canActivate: [UserGuard] },
-    { path: 'stories', component: StoriesComponent }, 
+    { path: 'stories', loadChildren: () => import('./app/component/stories/stories.routes').then(m => m.routes) },
     { path: 'stories/new', component: StoryFormComponent },
     { path: 'signup', component: RegisterComponent,canActivate:[UserGuard] },
     { path: 'access', component: AccessComponent,canActivate:[UserGuard] },
@@ -36,7 +36,8 @@ const routes: Routes = [
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(routes),
-        importProvidersFrom(BrowserModule, ReactiveFormsModule,  FormsModule),
+        importProvidersFrom(BrowserModule, ReactiveFormsModule, FormsModule,
+                   MatFormFieldModule, MatInputModule, MatButtonModule),
         AuthService, [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations()
