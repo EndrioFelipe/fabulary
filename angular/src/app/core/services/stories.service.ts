@@ -8,7 +8,7 @@ import { Story } from '../models/story.model';
 })
 export class StoriesService {
 
-  private apiUrl = 'http://localhost:8080/api/v1/stories';
+  private apiUrl = 'http://localhost:8081/api/v1/stories';
 
   constructor(private http: HttpClient) {}
 

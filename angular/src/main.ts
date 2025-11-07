@@ -33,6 +33,27 @@ const routes: Routes = [
     { path: 'hello', component: HelloComponent, canActivate:[UserGuard] },
 ];
 
+/*
+exemplor paralelo sintático do lazy loading do typescript em java
+
+{ 
+  path: 'stories',
+  loadChildren: () => import('./app/component/stories/stories.routes')
+                       .then(m => m.routes)
+}
+
+em JAVA:
+
+// Quando o cliente acessa o endpoint '/stories',
+// o Spring Boot invoca dinamicamente o controlador StoriesController.
+@GetMapping("/stories")
+public ResponseEntity<List<Story>> loadStories() {
+    // Aqui seria como o 'import(...)' — o backend carrega dados sob demanda
+    List<Story> stories = storyService.findAll();
+    return ResponseEntity.ok(stories);
+}
+*/
+
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(routes),

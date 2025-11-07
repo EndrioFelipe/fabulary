@@ -2,6 +2,7 @@ package com.fabulary.stories.controllers;
 
 
 import com.fabulary.stories.models.Story;
+import com.fabulary.stories.repository.StoryRepository;
 import com.fabulary.stories.services.StoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +16,11 @@ import java.util.List;
 public class StoryController {
 
     private final StoryService storyService;
+    private final StoryRepository repository;
 
-    public StoryController(StoryService storyService) {
+    public StoryController(StoryService storyService, StoryRepository repository) {
         this.storyService = storyService;
+        this.repository = repository;
     }
 
     @PostMapping
@@ -34,5 +37,11 @@ public class StoryController {
     @GetMapping
     public ResponseEntity<?> getAllStories() {
         return ResponseEntity.ok(storyService.findAll());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteStory(@PathVariable Long id) {
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

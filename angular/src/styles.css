@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '@fontsource/cinzel-decorative/700.css';
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  font-family: 'Cinzel Decorative', serif;
+  letter-spacing: 1px;
+}
 
 .mt{
     margin-top: 20px;
@@ -9,4 +12,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .text-center{
     text-align: center;
+}
+
+/* sucesso */
+.mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {
+  background-color: #4caf50 !important;
+  color: #fff !important;
+}
+
+/* erro */
+.mat-mdc-snack-bar-container.snackbar-error .mdc-snackbar__surface {
+  background-color: #f44336 !important;
+  color: #fff !important;
+}
+
+/* botão de ação */
+.mat-mdc-snack-bar-container .mdc-button__label {
+  color: #fff !important;
 }

@@ -1,19 +1,27 @@
 <section class="stories">
-  <div class="overlay">
-    <h1 class="title">Contos</h1>
+  <h1 class="title">Contos</h1>
 
-    <div *ngIf="loading" class="loading">Carregando...</div>
-    <div *ngIf="error" class="error" style="color: white;">{{ error }}</div>
-    
-    <div class="story-list" *ngIf="!loading && !error">
-      <div class="story-card" *ngFor="let story of stories">
-        <h2>{{ story.title }}</h2>
-        <p class="excerpt">{{ story.excerpt }}</p>
-        <button class="btn" (click)="openStory(story)">Ler conto</button>
-      </div>
-    </div>
-    <div class="actions">
-      <button class="btn" (click)="createStory()">Novo conto</button>
-    </div>
+  <div class="story-list" *ngIf="!loading && !error">
+    <mat-card class="story-card" *ngFor="let story of stories">
+      <mat-card-title>{{ story.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ story.excerpt || story.content }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="openStory(story)">
+          <mat-icon>menu_book</mat-icon> Ler conto
+        </button>
+        <button color="warn" class="delete-button" (click)="deleteStory(story.id)">
+          <img src="../../../assets/image/veadoexc.png" alt="Excluir" width="50" height="">
+          <div>Excluir</div>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button color="accent" class="new-story-btn" (click)="createStory()">
+      <mat-icon>auto_fix_high</mat-icon> Novo conto
+    </button>
   </div>
 </section>
