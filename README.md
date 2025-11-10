@@ -34,6 +34,7 @@ The project is being developed as a personal laboratory to explore:
 
    ```powershell
    cd .\angular
+   ```
 
 (If you cloned the repo somewhere else, it will look like:)
 PS C:\...\spring_security\angular>
