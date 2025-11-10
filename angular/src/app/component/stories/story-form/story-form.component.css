@@ -76,3 +76,16 @@ button:hover:not(:disabled) {
 mat-form-field {
   margin-bottom: 1rem;
 }
+
+/* styles.css (global) */
+.mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {
+  background-color: #4caf50 !important; /* verde */
+  color: #fff !important;
+}
+
+/* opcional: cor do botão de ação */
+.mat-mdc-snack-bar-container.snackbar-success .mdc-button__label {
+  color: #fff !important;
+}
+
+

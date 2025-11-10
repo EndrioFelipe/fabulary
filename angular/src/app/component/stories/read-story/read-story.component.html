@@ -1,0 +1,13 @@
+<section class="read-story" *ngIf="!loading && story">
+  <div class="overlay">
+    <div class="story-container">
+      <h1 class="story-title">{{ story.title }}</h1>
+      <article class="story-content">
+        <p>{{ story.content }}</p>
+      </article>
+      <button mat-raised-button color="accent" (click)="backToList()">
+        ← Voltar
+      </button>
+    </div>
+  </div>
+</section>

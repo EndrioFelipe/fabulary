@@ -16,32 +16,38 @@ import java.util.List;
 public class StoryController {
 
     private final StoryService storyService;
-    private final StoryRepository repository;
 
-    public StoryController(StoryService storyService, StoryRepository repository) {
+    public StoryController(StoryService storyService) {
         this.storyService = storyService;
-        this.repository = repository;
     }
 
     @PostMapping
     public ResponseEntity<Story> createStory(@RequestBody Story story) {
         Story saved = storyService.create(story);
 
-        // 💾 O Service grava esse manuscrito (no banco) e envia uma cópia (evento Kafka)
-        // para a "caixa de correio" story.created, pra que outros sistemas saibam do novo conto.
-
-        // 📤 Depois, devolvemos a resposta HTTP ao usuário confirmando a criação.
+        // salva o conto no banco e tbm manda pro kafka
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Story> getStoryById(@PathVariable Long id) {
+        // se nao existir, o service já lança exceção e o handler devolve 404
+        Story story = storyService.findById(id);
+        return ResponseEntity.ok(story);
+    }
+
     @GetMapping
-    public ResponseEntity<?> getAllStories() {
-        return ResponseEntity.ok(storyService.findAll());
+    public ResponseEntity<List<Story>> getAllStories() {
+        // lista todos os contos salvos no banco
+        // aqui nao tem kafka nem nada, é só leitura
+        List<Story> stories = storyService.findAll();
+        return ResponseEntity.ok(stories);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStory(@PathVariable Long id) {
-        repository.deleteById(id);
+        // deleta o conto pelo id, se nao existir o handler ja cuida
+        storyService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }

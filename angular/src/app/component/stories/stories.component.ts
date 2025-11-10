@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { StoriesTableComponent } from './stories-table/stories-table.component';
 
 
 @Component({
@@ -27,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatProgressSpinnerModule,
     MatGridListModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    StoriesTableComponent
   ],
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.css']
@@ -37,6 +39,9 @@ export class StoriesComponent implements OnInit {
   stories: Story[] = [];
   loading = false;
   error: string | null = null;
+  showTable = false;
+  viewModeLabel = 'Modo tabela';
+  viewModeIcon = 'table_view';
 
   constructor(private storiesService: StoriesService, private router: Router,
      private snackBar: MatSnackBar 
@@ -64,7 +69,7 @@ export class StoriesComponent implements OnInit {
   }
 
   openStory(story: Story): void {
-    alert(`Abrindo: ${story.title}`);
+    this.router.navigate(['/stories/read', story.id]);
   }
 
   createStory(): void {
@@ -96,6 +101,40 @@ export class StoriesComponent implements OnInit {
         });
       }
     });
+  }
+
+  truncateTitle(text: string): string {
+     if (!text) {
+      return '';
+    }
+    if (text.length <= 12) {
+      return text;
+    } else {
+      return text.substring(0, 12) + '...';
+    }
+  }
+
+  truncateContent(text: string): string {
+    if (!text) {
+      return '';
+    }
+    if (text.length <= 60) {
+      return text;
+    } else {
+      return text.substring(0, 60) + '...';
+    }
+  }
+
+  toggleView(): void {
+    this.showTable = !this.showTable;
+
+    if (this.showTable) {
+      this.viewModeLabel = 'Modo moldura';
+      this.viewModeIcon = 'view_module';
+    } else {
+      this.viewModeLabel = 'Modo tabela';
+      this.viewModeIcon = 'table_view';
+    }
   }
 
 }

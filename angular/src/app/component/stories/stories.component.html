@@ -1,23 +1,40 @@
 <section class="stories">
   <h1 class="title">Contos</h1>
 
-  <div class="story-list" *ngIf="!loading && !error">
-    <mat-card class="story-card" *ngFor="let story of stories">
-      <mat-card-title>{{ story.title }}</mat-card-title>
-      <mat-card-content>
-        <p>{{ story.excerpt || story.content }}</p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-raised-button color="primary" (click)="openStory(story)">
-          <mat-icon>menu_book</mat-icon> Ler conto
-        </button>
-        <button color="warn" class="delete-button" (click)="deleteStory(story.id)">
-          <img src="../../../assets/image/veadoexc.png" alt="Excluir" width="50" height="">
-          <div>Excluir</div>
-        </button>
-      </mat-card-actions>
-    </mat-card>
+  <div class="view-toggle">
+    <button mat-raised-button class="toggle-btn" (click)="toggleView()">
+      <mat-icon>{{ viewModeIcon }}</mat-icon>
+      {{ viewModeLabel }}
+    </button>
   </div>
+
+  <ng-container *ngIf="!showTable; else tableView">
+    <div class="story-list" *ngIf="!loading && !error">
+      <mat-card class="story-card" *ngFor="let story of stories">
+        <div class="story-inner">
+          <mat-card-title>
+            <p>{{ truncateTitle(story.title || '') }}</p>
+          </mat-card-title>
+          <mat-card-content>
+            <p>{{ truncateContent(story.excerpt || story.content || '') }}</p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="primary" (click)="openStory(story)">
+              <mat-icon>menu_book</mat-icon> Ler conto
+            </button>
+            <button color="warn" class="delete-button" (click)="deleteStory(story.id)">
+              <img src="../../../assets/image/veadoexc.png" alt="Excluir" width="50" />
+              <div>Excluir</div>
+            </button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  <ng-template #tableView>
+    <app-stories-table [stories]="stories"></app-stories-table>
+  </ng-template>
 
   <div class="actions">
     <button mat-raised-button color="accent" class="new-story-btn" (click)="createStory()">
