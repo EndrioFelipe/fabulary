@@ -101,7 +101,6 @@ Keep this window open as well.
 - Maven installed and configured in the system PATH  
 - Kafka running locally (see the section above)
 
----
 
 ### 1. Install Maven dependencies
 
@@ -149,3 +148,26 @@ After both commands are running successfully, you should be able to access:
    Security service: http://localhost:8080
    
    Stories service: http://localhost:8081/api/v1/stories
+
+---
+
+## API Documentation (Swagger)
+
+Both backend services include integrated Swagger UI for exploring and testing their REST endpoints directly from the browser.
+
+### 1. Access the Swagger UI for the `security-service`
+
+After the service is running (on port 8080), open the following URL in your browser:
+
+http://localhost:8080/swagger-ui/index.html
+
+   This page allows you to test all authentication-related endpoints (login, token validation, etc.) directly from the UI.
+
+http://localhost:8081/swagger-ui/index.html
+
+   Here you can:
+   - Test all Story CRUD operations (`GET`, `POST`, `DELETE`);
+   - Create stories and see Kafka events being triggered (if Kafka is running);
+   - Validate the integration between the two microservices.
+
+Swagger automatically generates interactive documentation from your controllers, making it easy to explore and test the API.
