@@ -1,13 +1,17 @@
 # Fabulary
 
-Fabulary é uma plataforma de contos digitais construída com uma arquitetura moderna de microsserviços.  
-O objetivo é oferecer um ambiente imersivo para criação, listagem e leitura de histórias, com um visual inspirado em um tom gótico/mágico e integração entre backend em Spring Boot e frontend em Angular.
+[🇧🇷 Leia em Português](README.pt.md)
 
-## Visão geral
+---
 
-O projeto está sendo desenvolvido como um laboratório pessoal para explorar:
+Fabulary is a digital storytelling platform built with a modern microservices architecture.  
+It offers an immersive environment for creating, listing, and reading stories — featuring a gothic-magical aesthetic and seamless integration between a Spring Boot backend and an Angular frontend.
 
-- Microsserviços em Spring Boot (Java)
-- Comunicação assíncrona com Kafka
-- Autenticação via JWT
-- Frontend em Angular com um tema customizado (modo “moldura” e modo “tabela” para exibição dos contos)
+## Overview
+
+The project is being developed as a personal laboratory to explore:
+
+- Microservices with Spring Boot (Java)
+- Asynchronous communication using Kafka
+- Authentication via JWT
+- Angular frontend with a custom theme (two visual modes: **Frame mode** and **Table mode**)
