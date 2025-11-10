@@ -41,14 +41,15 @@ PS C:\...\spring_security\angular>
 
 3. Install dependencies (first time only):
 
-```powershell
-npm install
-```
+   ```powershell
+   npm install
+   ```
 
 4. Start the development server:
 
-```powershell
-ng serve
+   ```powershell
+   ng serve
+   ```
 
 
 5. Open the browser at:
