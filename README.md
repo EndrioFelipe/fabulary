@@ -2,6 +2,14 @@
 
 [🇧🇷 Leia em Português](README-PT.md)
 
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Frontend (Angular)](#frontend-angular)
+3. [Kafka Setup (Windows)](#kafka-setup-windows)
+4. [Backend (Spring Boot)](#backend-spring-boot)
+5. [API Documentation (Swagger)](#api-documentation-swagger)
+
 ---
 
 Fabulary is a digital storytelling platform built with a modern microservices architecture.  
@@ -125,7 +133,7 @@ Navigate to the security service folder and start Spring Boot:
 
    ```powershell
    cd "C:\...\spring_security\security"
-   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8080
+   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8080"
    ```
 
    Keep this window open.
@@ -136,7 +144,7 @@ Open another PowerShell window and navigate to the stories service folder:
 
    ```powershell
    cd "C:\...\spring_security\fabulary-stories-service"
-   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081
+   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081"
    ```
 
    Keep this one open too.
