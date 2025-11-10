@@ -15,3 +15,37 @@ The project is being developed as a personal laboratory to explore:
 - Asynchronous communication using Kafka
 - Authentication via JWT
 - Angular frontend with a custom theme (two visual modes: **Frame mode** and **Table mode**)
+
+## Frontend (Angular)
+
+### Running the frontend (development)
+
+Prerequisites:
+- Node.js installed
+- Angular CLI installed globally (`npm install -g @angular/cli`)
+
+Steps:
+
+1. Open a terminal (PowerShell on Windows) in the root of the project.
+
+2. Navigate to the `angular` folder:
+
+   ```powershell
+   cd .\angular
+
+(If you cloned the repo somewhere else, it will look like:
+PS C:\...\fabulary\angular>)
+
+3. Install dependencies (first time only):
+
+npm install
+
+
+4. Start the development server:
+
+ng serve
+
+
+5. Open the browser at:
+
+http://localhost:4200
