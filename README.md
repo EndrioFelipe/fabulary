@@ -34,15 +34,17 @@ Steps:
    cd .\angular
 
 (If you cloned the repo somewhere else, it will look like:
-PS C:\...\fabulary\angular>)
+PS C:\...\spring_security\angular>)
 
 3. Install dependencies (first time only):
 
+```powershell
 npm install
 
 
 4. Start the development server:
 
+```powershell
 ng serve
 
 
