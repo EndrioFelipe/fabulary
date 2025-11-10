@@ -16,15 +16,17 @@ The project is being developed as a personal laboratory to explore:
 - Authentication via JWT
 - Angular frontend with a custom theme (two visual modes: **Frame mode** and **Table mode**)
 
+---
+
 ## Frontend (Angular)
 
 ### Running the frontend (development)
 
-Prerequisites:
-- Node.js installed
+**Prerequisites:**
+- Node.js installed  
 - Angular CLI installed globally (`npm install -g @angular/cli`)
 
-Steps:
+**Steps:**
 
 1. Open a terminal (PowerShell on Windows) in the root of the project.
 
@@ -33,17 +35,13 @@ Steps:
    ```powershell
    cd .\angular
 
-(If you cloned the repo somewhere else, it will look like:
-PS C:\...\spring_security\angular>)
+(If you cloned the repo somewhere else, it will look like:)
+PS C:\...\spring_security\angular>
 
 3. Install dependencies (first time only):
-
-```powershell
 npm install
 
-
 4. Start the development server:
-
 
 ng serve
 
