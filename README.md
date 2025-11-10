@@ -115,7 +115,7 @@ Before running the microservices for the first time, open a terminal and navigat
    Then:
    
    ```powershell
-   cd C:\...\spring_security\fabulary-stories-service
+   cd "C:\...\spring_security\fabulary-stories-service"
    mvn clean install
    ```
 
@@ -125,7 +125,7 @@ Before running the microservices for the first time, open a terminal and navigat
 Navigate to the security service folder and start Spring Boot:
 
    ```powershell
-   cd C:\...\spring_security\security"
+   cd "C:\...\spring_security\security"
    mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8080
    ```
 
@@ -136,7 +136,7 @@ Navigate to the security service folder and start Spring Boot:
 Open another PowerShell window and navigate to the stories service folder:
 
    ```powershell
-   cd C:\...\spring_security\fabulary-stories-service
+   cd "C:\...\spring_security\fabulary-stories-service"
    mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081
    ```
 
