@@ -1,6 +1,6 @@
 # Fabulary
 
-[🇧🇷 Leia em Português](README.pt.md)
+[🇧🇷 Leia em Português](README-PT.md)
 
 ---
 
