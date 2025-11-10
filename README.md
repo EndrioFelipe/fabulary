@@ -39,10 +39,13 @@ The project is being developed as a personal laboratory to explore:
 PS C:\...\spring_security\angular>
 
 3. Install dependencies (first time only):
+
+```powershell
 npm install
 
 4. Start the development server:
 
+```powershell
 ng serve
 
 
