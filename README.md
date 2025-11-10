@@ -43,6 +43,7 @@ PS C:\...\spring_security\angular>
 
 ```powershell
 npm install
+```
 
 4. Start the development server:
 
