@@ -31,7 +31,7 @@ Steps:
 2. Navigate to the `angular` folder:
 
    ```powershell
-   cd .\angular```
+   cd .\angular
 
 (If you cloned the repo somewhere else, it will look like:
 PS C:\...\spring_security\angular>)
@@ -39,13 +39,13 @@ PS C:\...\spring_security\angular>)
 3. Install dependencies (first time only):
 
 ```powershell
-npm install```
+npm install
 
 
 4. Start the development server:
 
-```powershell
-ng serve```
+
+ng serve
 
 
 5. Open the browser at:
