@@ -55,3 +55,38 @@ PS C:\...\spring_security\angular>
 5. Open the browser at:
 
    http://localhost:4200
+
+
+
+## Kafka Setup (Windows)
+
+### Installing and running Apache Kafka locally
+
+**Prerequisites:**
+- Java installed (Kafka requires Java 8 or later)
+- Kafka downloaded and extracted (for example: `C:\kafka\kafka_2.13-3.9.0`)
+
+---
+
+### 1. Start ZooKeeper
+
+Kafka requires ZooKeeper to manage its brokers.  
+Open a **PowerShell** or **Command Prompt** window and run:
+
+```powershell
+cd "C:\kafka\kafka_2.13-3.9.0\bin\windows"
+.\zookeeper-server-start.bat ..\..\config\zookeeper.properties
+```
+
+Keep this window open — ZooKeeper must keep running in the background.
+
+2. Start Kafka Server
+Open a new PowerShell window and run:
+
+```powershell
+cd "C:\kafka\kafka_2.13-3.9.0\bin\windows"
+.\kafka-server-start.bat ..\..\config\server.properties
+```
+
+Keep this window open as well.
+
