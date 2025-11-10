@@ -56,7 +56,7 @@ PS C:\...\spring_security\angular>
 
    http://localhost:4200
 
-
+---
 
 ## Kafka Setup (Windows)
 
@@ -80,7 +80,7 @@ cd "C:\kafka\kafka_2.13-3.9.0\bin\windows"
 
 Keep this window open — ZooKeeper must keep running in the background.
 
-2. Start Kafka Server
+### 2. Start Kafka Server
 Open a new PowerShell window and run:
 
 ```powershell
@@ -90,3 +90,4 @@ cd "C:\kafka\kafka_2.13-3.9.0\bin\windows"
 
 Keep this window open as well.
 
+---
