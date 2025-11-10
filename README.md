@@ -54,4 +54,4 @@ PS C:\...\spring_security\angular>
 
 5. Open the browser at:
 
-http://localhost:4200
+   http://localhost:4200
