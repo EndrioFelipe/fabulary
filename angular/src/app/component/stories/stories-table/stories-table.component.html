@@ -1,9 +1,6 @@
 <app-data-table
-  [title]="'Contos'"
   [columns]="columns"
   [data]="stories"
-  [filterLabel]="'Filtrar contos'"
-  (view)="openStory($event)"
-  (delete)="deleteStory($event.id)"
+  [filters]="filters"
   (filter)="applyFilter($event)">
 </app-data-table>

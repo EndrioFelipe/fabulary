@@ -25,13 +25,18 @@ export class DataTableComponent implements OnInit, DoCheck {
   @Input() title: string = '';
   @Input() columns: { field: string, header: string }[] = [];
   @Input() data: any[] = [];
-  @Input() filterLabel: string = 'Filtrar itens';
+  @Input() filters: {
+    label: string;
+    field: string;
+    type?: 'text' | 'select' | 'date';
+    options?: string[];
+  }[] = [];
   @Input() pageSizeOptions = [5, 10, 25];
   @Input() pageSize = 5;
 
   @Output() view = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
-  @Output() filter = new EventEmitter<string>();
+  @Output() filter = new EventEmitter<{ field: string; value: string }>();
 
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = [];
@@ -84,10 +89,6 @@ export class DataTableComponent implements OnInit, DoCheck {
     this.currentPage = Math.floor((this.totalItems - 1) / this.pageSize);
   }
 
-  applyFilter(event: Event) {
-    const value = (event.target as HTMLInputElement).value.trim().toLowerCase();
-    this.filter.emit(value);
-  }
 
   handleView(item: any) {
     this.view.emit(item);
@@ -95,5 +96,11 @@ export class DataTableComponent implements OnInit, DoCheck {
 
   handleDelete(item: any) {
     this.delete.emit(item);
+  }
+
+  onFilterChange(field: string, event: Event): void {
+    const target = event.target as HTMLInputElement | HTMLSelectElement | null;
+    const value = target?.value ?? '';
+    this.filter.emit({ field, value });
   }
 }

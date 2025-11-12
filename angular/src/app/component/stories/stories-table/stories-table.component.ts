@@ -18,15 +18,16 @@ export class StoriesTableComponent {
     { field: 'excerpt', header: 'Resumo' }
   ];
 
-  openStory(story: Story) {
-    console.log('Abrir conto', story);
+  filters: { field: string; label: string; type?: 'text' | 'select' | 'date'; options?: string[] }[] = [
+    { field: 'title', label: 'Título', type: 'text' },
+    { field: 'excerpt', label: 'Resumo', type: 'text' },
+  ];
+
+  applyFilter(event: { field: string; value: string }) {
+    const { field, value } = event;
+    console.log(`Filtrar por ${field}: ${value}`);
   }
 
-  deleteStory(id: number) {
-    console.log('Excluir conto', id);
-  }
-
-  applyFilter(value: string) {
-    console.log('Filtrar:', value);
-  }
+  openStory(story: Story) { console.log('Abrir conto', story); }
+  deleteStory(id: number) { console.log('Excluir conto', id); }
 }
