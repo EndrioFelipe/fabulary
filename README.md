@@ -1,191 +1,181 @@
-# Java Spring Boot and Angular Project -  APIs with Spring Security and JWT
+# Fabulary
 
-## Introduction
+[🇧🇷 Leia em Português](README-PT.md)
 
-This repository contains a Java Spring Boot and Angular project that implements simple signup and login APIs with Spring Security and JWT (JSON Web Tokens). The project aims to demonstrate how to build a secure authentication system using Spring Boot for the backend and Angular for the frontend.The backend is developed with Java Spring Boot, which provides robust security features through Spring Security, and the 
-frontend is built with Angular, providing a user-friendly interface to interact with the signup and login APIs.
+## Table of Contents
 
-DEMO
+1. [Overview](#overview)
+2. [Frontend (Angular)](#frontend-angular)
+3. [Kafka Setup (Windows)](#kafka-setup-windows)
+4. [Backend (Spring Boot)](#backend-spring-boot)
+5. [API Documentation (Swagger)](#api-documentation-swagger)
 
-### WHAT IT DOES
+---
 
-## Cutting-edge Tech Arsenal 🚀
+Fabulary is a digital storytelling platform built with a modern microservices architecture.  
+It offers an immersive environment for creating, listing, and reading stories — featuring a gothic-magical aesthetic and seamless integration between a Spring Boot backend and an Angular frontend.
 
-- **Spring Boot:** Powering Java-based applications with finesse
-- **Spring Security:** Fortifying your system with top-tier authentication and access control
-- **Gradle:** Automating your builds for seamless deployment
-- **Java:** The backbone of our backend development, ensuring robust functionality
-- **Angular:** Crafting sleek, dynamic views for an unparalleled user experience
-- **TypeScript:** Elevating our frontend with type-checked precision
+## Overview
 
-## Features
+The project is being developed as a personal laboratory to explore:
 
-- User signup with email and password
-- User login with email and password
-- JWT-based authentication for secure API access
-- Token-based session management
+- Microservices with Spring Boot (Java)
+- Asynchronous communication using Kafka
+- Authentication via JWT
+- Angular frontend with a custom theme (two visual modes: **Frame mode** and **Table mode**)
 
-## Requirements
+---
 
-Before running the project, ensure you have the following prerequisites:
+## Frontend (Angular)
 
-- Java Development Kit (JDK) 17 or higher
-- Node.js and npm (Node Package Manager)
-- Angular CLI (Command Line Interface)
+### Running the frontend (development)
 
-## Setup Instructions
+**Prerequisites:**
+- Node.js installed  
+- Angular CLI installed globally (`npm install -g @angular/cli`)
 
-1. **Clone the repository:** Start by cloning this repository to your local machine using Git.
+**Steps:**
 
-```shell
-git clone https://github.com/kpidiba/spring_security
-cd spring-boot-angular-auth
+### 1. Open a terminal (PowerShell on Windows) in the root of the project.
+
+### 2. Navigate to the `angular` folder:
+
+   ```powershell
+   cd .\angular
+   ```
+
+(If you cloned the repo somewhere else, it will look like:)
+PS C:\...\spring_security\angular>
+
+### 3. Install dependencies (first time only):
+
+   ```powershell
+   npm install
+   ```
+
+### 4. Start the development server:
+
+   ```powershell
+   ng serve
+   ```
+
+
+### 5. Open the browser at:
+
+   http://localhost:4200
+
+---
+
+## Kafka Setup (Windows)
+
+### Installing and running Apache Kafka locally
+
+**Prerequisites:**
+- Java installed (Kafka requires Java 8 or later)
+- Kafka downloaded and extracted (for example: `C:\kafka\kafka_2.13-3.9.0`)
+
+
+### 1. Start ZooKeeper
+
+Kafka requires ZooKeeper to manage its brokers.  
+Open a **PowerShell** or **Command Prompt** window and run:
+
+```powershell
+cd "C:\kafka\kafka_2.13-3.9.0\bin\windows"
+.\zookeeper-server-start.bat ..\..\config\zookeeper.properties
 ```
 
-- **Backend Setup:**
-  
-  - Open the backend project in your preferred Java IDE (Eclipse, IntelliJ, etc.).
-  - Configure your database settings in `src/main/resources/application.properties`.
-  - maven install all dependencies
-  - Run the Spring Boot application to start the backend server.
-  
-  ```bash
-  mvn install
-  ```
-  
-  - Create database **security** or **custom database**
+Keep this window open — ZooKeeper must keep running in the background.
 
-- **Frontend Setup:**
-  
-  - Navigate to the `Client` folder.
-  - Install the required dependencies by running:
-  
-  ```shell
-  npm install
-  ```
+### 2. Start Kafka Server
+Open a new PowerShell window and run:
 
-- Update the API base URL in `src/environments/environment.ts` to match your backend server URL.
-
-- **Running the Application:**
-  
-  - To start the Angular development server, run:
-  
-  ```shell
-  ng serve
-  ```
-2. Visit `http://localhost:4200` in your web browser to access the application.
-
-## Usage
-
-1. **Signup:**
-   
-   - Open the application in your web browser and click on the "Sign Up" button.
-   - Enter your email address and password, then click "Register."
-   - Upon successful registration, you will be redirected to the login page.
-
-2. **Login:**
-   
-   - On the login page, enter your registered email address and password.
-   - Click on the "Login" button.
-   - If the provided credentials are correct, you will be redirected to the dashboard.
-
-3. **Dashboard:**
-   
-   - The dashboard displays a welcome message and other user-specific information.
-   - The dashboard makes authenticated API requests to the backend using JWT.
-
-**USE TOKEN IN REQUEST INSOMNIA**
-
-- go to header ,first input Authorization ,second section "Bearer $token"
-
-### DEPENDENCIES
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.security</groupId>
-    <artifactId>test</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>test</name>
-    <description>Demo project for Spring Boot</description>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-jackson</artifactId>
-            <version>0.11.5</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-impl</artifactId>
-            <version>0.11.5</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-api</artifactId>
-            <version>0.11.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>annotationProcessor</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+```powershell
+cd "C:\kafka\kafka_2.13-3.9.0\bin\windows"
+.\kafka-server-start.bat ..\..\config\server.properties
 ```
 
-## Contributing
+Keep this window open as well.
 
-Contributions to this project are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+---
 
-When contributing, please follow the existing code style, and provide detailed information about your changes or additions.
+
+## Backend (Spring Boot)
+
+### Running the microservices (development)
+
+**Prerequisites:**
+- Java 17 or higher installed  
+- Maven installed and configured in the system PATH  
+- Kafka running locally (see the section above)
+
+
+### 1. Install Maven dependencies
+
+Before running the microservices for the first time, open a terminal and navigate to each backend folder to download the required dependencies.
+
+   ```powershell
+   cd "C:\...\spring_security\security"
+   mvn clean install
+   ```
+   
+   Then:
+   
+   ```powershell
+   cd "C:\...\spring_security\fabulary-stories-service"
+   mvn clean install
+   ```
+
+   This will download all necessary dependencies to your local Maven repository.
+
+### 2. Start the security-service (port 8080)
+Navigate to the security service folder and start Spring Boot:
+
+   ```powershell
+   cd "C:\...\spring_security\security"
+   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8080"
+   ```
+
+   Keep this window open.
+   This service is responsible for authentication and JWT token management.
+
+### 3. Start the fabulary-stories-service (port 8081)
+Open another PowerShell window and navigate to the stories service folder:
+
+   ```powershell
+   cd "C:\...\spring_security\fabulary-stories-service"
+   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081"
+   ```
+
+   Keep this one open too.
+   This service handles the CRUD operations for stories and publishes Kafka events when new stories are created.
+
+### 4. Verify both services are running
+After both commands are running successfully, you should be able to access:
+
+   Security service: http://localhost:8080
+   
+   Stories service: http://localhost:8081/api/v1/stories
+
+---
+
+## API Documentation (Swagger)
+
+Both backend services include integrated Swagger UI for exploring and testing their REST endpoints directly from the browser.
+
+### 1. Access the Swagger UI for the `security-service`
+
+After the service is running (on port 8080), open the following URL in your browser:
+
+http://localhost:8080/swagger-ui/index.html
+
+   This page allows you to test all authentication-related endpoints (login, token validation, etc.) directly from the UI.
+
+http://localhost:8081/swagger-ui/index.html
+
+   Here you can:
+   - Test all Story CRUD operations (`GET`, `POST`, `DELETE`);
+   - Create stories and see Kafka events being triggered (if Kafka is running);
+   - Validate the integration between the two microservices.
+
+Swagger automatically generates interactive documentation from your controllers, making it easy to explore and test the API.
