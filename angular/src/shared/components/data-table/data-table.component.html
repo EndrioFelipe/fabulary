@@ -1,0 +1,55 @@
+<div class="table-wrapper">
+  <div class="table-header">
+    <div class="filter-field custom-filter">
+      <label class="filter-label">{{ filterLabel }}</label>
+      <input
+        type="text"
+        class="filter-input"
+        (keyup)="applyFilter($event)"
+        placeholder="Digite algo..."
+      />
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container *ngFor="let col of columns" [matColumnDef]="col.field">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col.header }}</th>
+      <td mat-cell *matCellDef="let item">{{ item[col.field] }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let item" class="action-buttons">
+        <button mat-icon-button color="primary" (click)="handleView(item)">
+          <mat-icon>menu_book</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="handleDelete(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <div class="custom-paginator">
+    <div class="paginator-info">
+      {{ startIndex + 1 }}–{{ endIndex }} de {{ totalItems }}
+    </div>
+
+    <div class="paginator-controls">
+      <button (click)="firstPage()" [disabled]="currentPage === 0">«</button>
+      <button (click)="prevPage()" [disabled]="currentPage === 0">‹</button>
+
+      <span class="page-indicator">Página {{ currentPage + 1 }}</span>
+
+      <button (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= totalItems">›</button>
+      <button (click)="lastPage()" [disabled]="(currentPage + 1) * pageSize >= totalItems">»</button>
+
+      <select [(ngModel)]="pageSize" (change)="updatePageSize()">
+        <option *ngFor="let size of pageSizeOptions" [value]="size">{{ size }}</option>
+      </select>
+    </div>
+  </div>
+</div>
