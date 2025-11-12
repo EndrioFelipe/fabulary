@@ -179,3 +179,5 @@ http://localhost:8081/swagger-ui/index.html
    - Validate the integration between the two microservices.
 
 Swagger automatically generates interactive documentation from your controllers, making it easy to explore and test the API.
+
+![Profile views](https://komarev.com/ghpvc/?username=SEUUSUARIO&color=blue)
