@@ -2,5 +2,7 @@
   [columns]="columns"
   [data]="stories"
   [filters]="filters"
+  (delete)="deleteStory($event)" 
+  (view)="openStory($event)"    
   (filter)="applyFilter($event)">
 </app-data-table>

@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-data-table',
   standalone: true,
   imports: [
-    CommonModule,
+    CommonModule, 
     MatTableModule,
     MatSortModule,
     MatIconModule,
@@ -35,7 +35,7 @@ export class DataTableComponent implements OnInit, DoCheck {
   @Input() pageSize = 5;
 
   @Output() view = new EventEmitter<any>();
-  @Output() delete = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<any>(); 
   @Output() filter = new EventEmitter<{ field: string; value: string }>();
 
   dataSource!: MatTableDataSource<any>;

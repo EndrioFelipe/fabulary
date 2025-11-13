@@ -19,7 +19,8 @@ import { StoriesTableComponent } from './stories-table/stories-table.component';
 @Component({
   selector: 'app-stories',
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule,
+  imports: [CommonModule, 
+    MatSnackBarModule,
     RouterModule,
     ReactiveFormsModule,
     MatFormFieldModule,

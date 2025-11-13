@@ -7,8 +7,8 @@
       *ngIf="!f.type || f.type === 'text'"
       type="text"
       class="filter-input"
-      [placeholder]="f.label"
-      (keyup)="onFilterChange(f.field, $event)"
+      [placeholder]="f.label" 
+      (keyup)="onFilterChange(f.field, $event)" 
     />
 
     <select
@@ -29,7 +29,7 @@
 </div>
 
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-    <ng-container *ngFor="let col of columns" [matColumnDef]="col.field">
+    <ng-container *ngFor="let col of columns" [matColumnDef]="col.field"> 
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col.header }}</th>
       <td mat-cell *matCellDef="let item">{{ item[col.field] }}</td>
     </ng-container>
