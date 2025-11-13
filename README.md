@@ -150,7 +150,17 @@ Open another PowerShell window and navigate to the stories service folder:
    Keep this one open too.
    This service handles the CRUD operations for stories and publishes Kafka events when new stories are created.
 
-### 4. Verify both services are running
+### 4. Start the fabulary-gateway (port 8085)
+Open another PowerShell window and navigate to the stories service folder:
+
+   ```powershell
+   cd "C:\...\spring_security\fabulary-gateway"
+   mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8085"
+   ```
+
+   Keep this one open too.
+
+### 5. Verify both services are running
 After both commands are running successfully, you should be able to access:
 
    Security service: http://localhost:8080
@@ -179,3 +189,5 @@ http://localhost:8081/swagger-ui/index.html
    - Validate the integration between the two microservices.
 
 Swagger automatically generates interactive documentation from your controllers, making it easy to explore and test the API.
+
+![Profile views](https://komarev.com/ghpvc/?username=EndrioFelipe&color=blue)
