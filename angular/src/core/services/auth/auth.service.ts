@@ -28,19 +28,16 @@ export class AuthService {
     );
   }
 
-  // === REGISTER ===
   register(data: RegisterRequest): Observable<AuthenticationResponse> {
     return this.http.post<AuthenticationResponse>(BASE_URL + 'auth/register', data);
   }
 
-  // === USERS TEST ===
   user(): Observable<User[]> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = 'http://localhost:8080/api/v1/test/users';
     return this.http.get<User[]>(url, { headers });
   }
 
-  // === TOKEN ===
   getToken() {
     return localStorage.getItem('token');
   }

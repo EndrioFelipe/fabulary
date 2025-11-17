@@ -44,6 +44,7 @@ export class DataTableComponent implements OnInit, DoCheck {
 
   @ViewChild(MatSort) sort!: MatSort;
 
+  
   ngOnInit() {
     this.displayedColumns = [...this.columns.map(c => c.field), 'actions'];
     this.dataSource = new MatTableDataSource(this.data.slice(this.startIndex, this.endIndex));

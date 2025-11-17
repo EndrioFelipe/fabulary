@@ -37,8 +37,11 @@ public class JwtAuthentificationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // 🔹 Ignora as rotas públicas de autenticação
+        // apenas rotas com o prefixo "/api/v1/auth/" são consideradas públicas, rotas como "/api/v1/users' são privadas, por isso não estão explicitadas aqui
         String path = request.getServletPath();
-        if (path.startsWith("/api/v1/auth/")) {
+
+
+        if (path.startsWith("/api/v1/auth/")) { //essa rota é ignorada pq é justamente por ela que vai se solicitar o token
             filterChain.doFilter(request, response);
             return;
         }

@@ -59,7 +59,9 @@ bootstrapApplication(AppComponent, {
         provideRouter(routes),
         importProvidersFrom(BrowserModule, ReactiveFormsModule, FormsModule,
                    MatFormFieldModule, MatInputModule, MatButtonModule),
-        AuthService, [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+        AuthService,
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        provideHttpClient(withInterceptorsFromDi()),
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations()
     ]

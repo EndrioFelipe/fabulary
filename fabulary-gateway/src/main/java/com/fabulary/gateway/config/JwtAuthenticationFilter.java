@@ -23,9 +23,9 @@ public class JwtAuthenticationFilter implements GlobalFilter { //implementa o gl
     private final JwtUtil jwtUtil;
 
     private static final String[] PUBLIC_ROUTES = {
-            "/api/auth/login",
-            "/api/auth/register",
-            "/api/auth/validate"
+            "/api/v1/auth/login",
+            "/api/v1/auth/register",
+            "/api/v1/auth/validate"
     };
 
     @Override
@@ -54,6 +54,7 @@ public class JwtAuthenticationFilter implements GlobalFilter { //implementa o gl
 
         ServerWebExchange mutated = exchange.mutate()
                 .request(builder -> builder
+                        .header("Authorization", authHeader)
                         .header("X-User-Id", userId)
                         .header("X-User-Email", email)
                 )

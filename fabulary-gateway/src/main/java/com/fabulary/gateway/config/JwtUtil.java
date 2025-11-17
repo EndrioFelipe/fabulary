@@ -2,7 +2,9 @@ package com.fabulary.gateway.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -10,14 +12,20 @@ import javax.crypto.SecretKey;
 @Component
 public class JwtUtil {
 
-    private final SecretKey secretKey =
-            Keys.hmacShaKeyFor("12345df78abc0000000000aaaaaaak1234aaaaaa231345aaa98bbaaacdfaaahaj".getBytes());
+    @Value("${jwt.secret}")
+    private String secret;
+
+    private SecretKey getSignInKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(secret);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
 
     public boolean validateToken(String token) {
         try {
             getClaims(token);
             return true;
         } catch (Exception e) {
+            System.out.println("Token inválido: " + e.getMessage());
             return false;
         }
     }
@@ -32,7 +40,7 @@ public class JwtUtil {
 
     private Claims getClaims(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(secretKey)
+                .setSigningKey(getSignInKey())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();

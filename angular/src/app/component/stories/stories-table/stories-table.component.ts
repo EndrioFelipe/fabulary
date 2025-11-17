@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Story } from '../../../core/models/story.model';
 import { DataTableComponent } from 'src/shared/components/data-table/data-table.component';
 import { StoriesService } from 'src/app/core/services/stories.service';
@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class StoriesTableComponent {
   @Input() stories: Story[] = [];
+  @Output() refresh = new EventEmitter<void>();
 
   constructor(private storiesService: StoriesService, private snackBar: MatSnackBar  ) {}
 
@@ -33,13 +34,15 @@ export class StoriesTableComponent {
   }
 
   openStory(story: Story) { console.log('Abrir conto', story);}
-  deleteStory(id: number) { 
-if (!confirm('Tem certeza que deseja excluir este conto?')) {
-      return;
-    }
+  deleteStory(story: Story) {
+   const id = story.id;
+    if (!confirm('Tem certeza que deseja excluir este conto?')) {
+        return;
+      }
 
     this.storiesService.delete(id).subscribe({
       next: () => {
+        this.refresh.emit(); 
         this.snackBar.open('Conto excluído com sucesso!', 'Fechar', {
           duration: 3000,
           horizontalPosition: 'center',

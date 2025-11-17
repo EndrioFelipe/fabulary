@@ -1,5 +1,6 @@
 package com.fabulary.gateway.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -8,18 +9,17 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 @Configuration
 public class GatewayConfig {
-
-    //Esse filtro libera o Angular (localhost:4200) para falar com o gateway sem bloqueios para qualquer header, mpetodo htpp, etc
     @Bean
     public CorsWebFilter corsWebFilter() {
-        CorsConfiguration cors = new CorsConfiguration();
-        cors.addAllowedOrigin("http://localhost:4200");
-        cors.addAllowedMethod("*");
-        cors.addAllowedHeader("*");
-        cors.setAllowCredentials(true);
+        CorsConfiguration config = new CorsConfiguration();
+        config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        config.setAllowCredentials(true);
+        config.addExposedHeader("*");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", cors);
+        source.registerCorsConfiguration("/**", config);
 
         return new CorsWebFilter(source);
     }

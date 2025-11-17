@@ -33,7 +33,10 @@
   </ng-container>
 
   <ng-template #tableView>
-    <app-stories-table [stories]="stories"></app-stories-table>
+    <app-stories-table 
+      [stories]="stories" 
+      (refresh)="loadStories()">
+    </app-stories-table>
   </ng-template>
 
   <div class="actions">

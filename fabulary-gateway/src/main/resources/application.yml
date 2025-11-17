@@ -22,18 +22,14 @@ spring:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
 
       globalcors:
+        add-to-simple-url-handler-mapping: true
         corsConfigurations:
           '[/**]':
-            allowedOrigins:
-              - "http://localhost:4200"
-            allowedMethods:
-              - "GET"
-              - "POST"
-              - "PUT"
-              - "DELETE"
-              - "OPTIONS"
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods: "*"
             allowedHeaders: "*"
+            exposedHeaders: "*"
             allowCredentials: true
 
 jwt:
-  secret: 12345df78abc0000000000aaaaaaak1234aaaaaa231345aaa98bbaaacdfaaahaj
+  secret: 12345df78abc00000000000aaaaaak123a4aaaaaa231a345aaa98baaaacdafaahaj
