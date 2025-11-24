@@ -1,0 +1,137 @@
+version: '3.8'
+
+services:
+  # -----------------------------
+  # ZOOKEEPER (necessário p/ Kafka)
+  # -----------------------------
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: fab_zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - fabnet
+
+  # -----------------------------
+  # KAFKA
+  # -----------------------------
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: fab_kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+      #### LISTENERS CORRETOS
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+    networks:
+      - fabnet
+
+  # -----------------------------
+  # MONGO (para o stories-service)
+  # -----------------------------
+  mongo:
+    image: mongo:6.0
+    container_name: fab_mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - fabnet
+
+  # -----------------------------
+  # POSTGRES (para security-service)
+  # -----------------------------
+  postgres:
+    image: postgres:15
+    container_name: fab_postgres
+    environment:
+      POSTGRES_USER: fabuser
+      POSTGRES_PASSWORD: fabpass
+      POSTGRES_DB: security_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fabnet
+
+  # -----------------------------
+  # SECURITY-SERVICE
+  # -----------------------------
+  security-service:
+    build:
+      context: ./security
+      dockerfile: Dockerfile
+    container_name: fab_security
+    ports:
+      - "8080:8080"
+    depends_on:
+      - kafka
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - fabnet
+
+  # -----------------------------
+  # STORIES-SERVICE
+  # -----------------------------
+  stories-service:
+    build:
+      context: ./fabulary-stories-service
+      dockerfile: Dockerfile
+    container_name: fab_stories
+    ports:
+      - "8081:8081"
+      - "5006:5006"   # debug remoto
+    depends_on:
+      - mongo
+      - kafka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - fabnet
+
+
+  # -----------------------------
+  # GATEWAY
+  # -----------------------------
+  gateway-service:
+    build:
+      context: ./fabulary-gateway
+      dockerfile: Dockerfile
+    container_name: fab_gateway
+    ports:
+      - "8085:8085"
+    depends_on:
+      - security-service
+      - stories-service
+    networks:
+      - fabnet
+
+# Volumes
+volumes:
+  mongo_data:
+  postgres_data:
+
+# Rede compartilhada
+networks:
+  fabnet:
+    driver: bridge

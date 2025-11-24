@@ -2,6 +2,18 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: stories-service
+
+  profiles:
+    default: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
   datasource:
     url: jdbc:h2:mem:storiesdb
     driver-class-name: org.h2.Driver
@@ -14,8 +26,32 @@ spring:
   h2:
     console:
       enabled: true
+
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    properties:
+      spring.json.add.type.headers: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+      database: storiesdb
+      username: root
+      password: example
+      authentication-database: admin
+
+  kafka:
+    bootstrap-servers: kafka:19092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
