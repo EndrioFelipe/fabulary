@@ -12,6 +12,8 @@ WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
 
+ENV SPRING_PROFILES_ACTIVE=docker
+
 # HABILITAR DEBUG REMOTO
 ENV JAVA_TOOL_OPTIONS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006"
 

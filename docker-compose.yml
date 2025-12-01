@@ -37,6 +37,12 @@ services:
 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/localhost/19092"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
     networks:
       - fabnet
 
@@ -102,8 +108,10 @@ services:
       - "8081:8081"
       - "5006:5006"   # debug remoto
     depends_on:
-      - mongo
-      - kafka
+      kafka:
+        condition: service_healthy
+      mongo:
+        condition: service_started
     environment:
       SPRING_PROFILES_ACTIVE: docker
     networks:

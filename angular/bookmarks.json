@@ -1,0 +1,34 @@
+{
+  "version": "3.0.1",
+  "lastModified": "2025-11-25T18:16:58.237Z",
+  "folders": [],
+  "bookmarks": [
+    {
+      "id": "miekeqjst9l3vey2uv",
+      "name": "ts data",
+      "file": "src/shared/components/data-table/data-table.component.ts",
+      "line": 22,
+      "character": 15,
+      "lineContent": "export class DataTableComponent implements OnInit, DoCheck {",
+      "sortOrder": 0
+    },
+    {
+      "id": "miekf3w4zptebrtzkh",
+      "name": "html sorty tab",
+      "file": "src/app/component/stories/stories-table/stories-table.component.html",
+      "line": 5,
+      "character": 18,
+      "lineContent": "(view)=\"openStory($event)\"",
+      "sortOrder": 1
+    },
+    {
+      "id": "miewdz0dma3xqy1cek",
+      "name": "ts story tab",
+      "file": "src/app/component/stories/stories-table/stories-table.component.ts",
+      "line": 13,
+      "character": 18,
+      "lineContent": "export class StoriesTableComponent {",
+      "sortOrder": 2
+    }
+  ]
+}
