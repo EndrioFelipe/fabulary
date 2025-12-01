@@ -117,6 +117,25 @@ services:
     networks:
       - fabnet
 
+  # -----------------------------
+  # EMAIL-SERVICE
+  # -----------------------------
+  email-service:
+    build:
+      context: ./email-service
+      dockerfile: Dockerfile
+    container_name: fab_email
+    ports:
+      - "8082:8082"
+      - "5007:5007"   # debug remoto
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - fabnet
+
 
   # -----------------------------
   # GATEWAY
