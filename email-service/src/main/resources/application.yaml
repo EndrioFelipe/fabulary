@@ -23,12 +23,13 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
     properties:
       spring.json.trusted.packages: "*"
+      spring.json.value.default.type: com.fabulary.email.events.StoryCreatedEvent
 
   mail:
-    host: smtp.gmail.com
+    host: smtp.office365.com
     port: 587
-    username: seu_email_aqui
-    password: sua_senha_app
+    username: ${EMAIL_USER}
+    password: ${EMAIL_PASS}
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
@@ -48,12 +49,13 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
     properties:
       spring.json.trusted.packages: "*"
+      spring.json.value.default.type: com.fabulary.email.events.StoryCreatedEvent
 
   mail:
-    host: smtp.gmail.com
+    host: smtp.office365.com
     port: 587
-    username: seu_email_aqui
-    password: sua_senha_app
+    username: ${EMAIL_USER}
+    password: ${EMAIL_PASS}
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true

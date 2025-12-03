@@ -22,7 +22,6 @@ public class StoryService {
     }
 
     public Story create(Story story) {
-        //  Salva o conto no banco
         Story saved = repository.save(story);
 
         // Cria o "conteúdo da carta" (evento para o Kafka)
