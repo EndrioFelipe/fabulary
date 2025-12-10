@@ -57,11 +57,11 @@ export class StoryFormComponent {
           this.router.navigate(['/stories']);
         },
         error: (err) => {
-          console.error('❌ Erro ao criar conto:', err);
+          console.error('Erro ao criar conto:', err);
         }
       });
     } else {
-      console.warn('⚠️ Formulário inválido');
+      console.warn('Formulário inválido');
     }
   }
 }

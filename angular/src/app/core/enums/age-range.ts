@@ -1,0 +1,5 @@
+export enum AgeRange {
+  THREE_TO_FIVE = 'THREE_TO_FIVE',
+  SIX_TO_EIGHT = 'SIX_TO_EIGHT',
+  NINE_TO_TWELVE = 'NINE_TO_TWELVE'
+}

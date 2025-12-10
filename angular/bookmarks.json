@@ -1,7 +1,61 @@
 {
   "version": "3.0.1",
-  "lastModified": "2025-11-25T18:16:58.237Z",
-  "folders": [],
+  "lastModified": "2025-12-10T14:04:51.448Z",
+  "folders": [
+    {
+      "id": "mj02fqjphlkolq6z0kk",
+      "name": "stories",
+      "sortOrder": 1,
+      "color": "red"
+    },
+    {
+      "id": "mj02fwbp93prbpeghss",
+      "name": "1shared",
+      "sortOrder": 2
+    },
+    {
+      "id": "mj02h2crjfc7l5dmb9o",
+      "name": "books",
+      "sortOrder": 5,
+      "color": "blue"
+    },
+    {
+      "id": "mj02hhnntrqt0ovu5zm",
+      "name": "html",
+      "parentId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 0
+    },
+    {
+      "id": "mj02hut2hhnxtu767p",
+      "name": "ts",
+      "parentId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 1
+    },
+    {
+      "id": "mj02i5hhhdl5ekodmzk",
+      "name": "ts",
+      "parentId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 6
+    },
+    {
+      "id": "mj02jioi8arflfpaq7",
+      "name": "css",
+      "parentId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 7
+    },
+    {
+      "id": "mj02kbd7xvvkihgk3o",
+      "name": "css",
+      "parentId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 9
+    },
+    {
+      "id": "mj02kel7bjyk4hingd",
+      "name": "html",
+      "parentId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 10
+    }
+  ],
   "bookmarks": [
     {
       "id": "miekeqjst9l3vey2uv",
@@ -10,7 +64,8 @@
       "line": 22,
       "character": 15,
       "lineContent": "export class DataTableComponent implements OnInit, DoCheck {",
-      "sortOrder": 0
+      "folderId": "mj02fwbp93prbpeghss",
+      "sortOrder": 4
     },
     {
       "id": "miekf3w4zptebrtzkh",
@@ -19,6 +74,7 @@
       "line": 5,
       "character": 18,
       "lineContent": "(view)=\"openStory($event)\"",
+      "folderId": "mj02hhnntrqt0ovu5zm",
       "sortOrder": 1
     },
     {
@@ -28,7 +84,78 @@
       "line": 13,
       "character": 18,
       "lineContent": "export class StoriesTableComponent {",
+      "folderId": "mj02hut2hhnxtu767p",
       "sortOrder": 2
+    },
+    {
+      "id": "mj02k1xk5kiej661fha",
+      "name": "css stories table",
+      "file": "src/app/component/stories/stories-table/stories-table.component.css",
+      "line": 11,
+      "character": 19,
+      "lineContent": "overflow: hidden;",
+      "folderId": "mj02jioi8arflfpaq7",
+      "sortOrder": 8
+    },
+    {
+      "id": "mj02kwzi45lzffyyen7",
+      "name": "html book",
+      "file": "src/app/component/books/children-book-list/children-book-list.component.html",
+      "line": 0,
+      "character": 0,
+      "lineContent": "",
+      "folderId": "mj02kel7bjyk4hingd",
+      "sortOrder": 11
+    },
+    {
+      "id": "mj02l7tivga8qmcb62p",
+      "name": "ts book",
+      "file": "src/app/component/books/children-book-list/children-book-list.component.ts",
+      "line": 2,
+      "character": 6,
+      "lineContent": "@Component({",
+      "folderId": "mj02i5hhhdl5ekodmzk",
+      "sortOrder": 12
+    },
+    {
+      "id": "mj02lkfpb0s4p2b1fa",
+      "name": "css book",
+      "file": "src/app/component/books/children-book-list/children-book-list.component.css",
+      "line": 0,
+      "character": 0,
+      "lineContent": "",
+      "folderId": "mj02kbd7xvvkihgk3o",
+      "sortOrder": 13
+    },
+    {
+      "id": "mj02vucxuikw99bxfj",
+      "name": "css stories component ",
+      "file": "src/app/component/stories/stories.component.css",
+      "line": 0,
+      "character": 40,
+      "lineContent": "/* container principal com fundo fixo */",
+      "folderId": "mj02jioi8arflfpaq7",
+      "sortOrder": 14
+    },
+    {
+      "id": "mj02xd8hs0gkv9paz8h",
+      "name": "ts stories component",
+      "file": "src/app/component/stories/stories.component.ts",
+      "line": 0,
+      "character": 18,
+      "lineContent": "import { Component, OnInit } from '@angular/core';",
+      "folderId": "mj02hut2hhnxtu767p",
+      "sortOrder": 15
+    },
+    {
+      "id": "mj02zbwgdyg4vv9nbau",
+      "name": "html stories component",
+      "file": "src/app/component/stories/stories.component.html",
+      "line": 0,
+      "character": 25,
+      "lineContent": "<section class=\"stories\">",
+      "folderId": "mj02hhnntrqt0ovu5zm",
+      "sortOrder": 16
     }
   ]
 }

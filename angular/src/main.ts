@@ -26,6 +26,7 @@ const routes: Routes = [
     { path: '', component: LandingComponent, pathMatch: 'full' },     
     { path: 'home', component: HomeComponent, canActivate: [UserGuard] },
     { path: 'stories', loadChildren: () => import('./app/component/stories/stories.routes').then(m => m.routes) },
+    { path: 'books', loadChildren: () => import('./app/component/books/books.routes').then(m => m.routes) },
     { path: 'stories/new', component: StoryFormComponent },
     { path: 'signup', component: RegisterComponent,canActivate:[UserGuard] },
     { path: 'access', component: AccessComponent,canActivate:[UserGuard] },

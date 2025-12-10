@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { StoriesComponent } from './component/stories/stories.component';
 import { CommonModule } from '@angular/common';
 import { StoryFormComponent } from './component/stories/story-form/story-form.component';
+import { ChildrenBookListComponent } from './component/books/children-book-list/children-book-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoriesComponent,
-    StoryFormComponent
+    StoryFormComponent,
+    ChildrenBookListComponent
   ],
   imports: [
     BrowserModule,
