@@ -1,0 +1,91 @@
+.story-form {
+  position: fixed;
+  inset: 0;
+  background: url('../../../../assets/image/bg-forest.jpg') center/cover no-repeat fixed;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 500px;
+  color: #fff;
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: #ddd;
+  margin-bottom: 0.25rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+button {
+  align-self: center;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #125ea8;
+}
+
+.full-width {
+  width: 100%;
+}
+mat-form-field {
+  margin-bottom: 1rem;
+}
+
+/* styles.css (global) */
+.mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {
+  background-color: #4caf50 !important; /* verde */
+  color: #fff !important;
+}
+
+/* opcional: cor do botão de ação */
+.mat-mdc-snack-bar-container.snackbar-success .mdc-button__label {
+  color: #fff !important;
+}
+
+

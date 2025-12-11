@@ -30,7 +30,7 @@ import { StoriesTableComponent } from './stories-table/stories-table.component';
     MatGridListModule,
     MatCardModule,
     MatIconModule,
-    StoriesTableComponent
+    StoriesTableComponent,
   ],
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.css']

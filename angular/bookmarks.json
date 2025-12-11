@@ -1,6 +1,6 @@
 {
   "version": "3.0.1",
-  "lastModified": "2025-12-10T14:04:51.448Z",
+  "lastModified": "2025-12-11T13:45:38.432Z",
   "folders": [
     {
       "id": "mj02fqjphlkolq6z0kk",
@@ -18,42 +18,6 @@
       "name": "books",
       "sortOrder": 5,
       "color": "blue"
-    },
-    {
-      "id": "mj02hhnntrqt0ovu5zm",
-      "name": "html",
-      "parentId": "mj02fqjphlkolq6z0kk",
-      "sortOrder": 0
-    },
-    {
-      "id": "mj02hut2hhnxtu767p",
-      "name": "ts",
-      "parentId": "mj02fqjphlkolq6z0kk",
-      "sortOrder": 1
-    },
-    {
-      "id": "mj02i5hhhdl5ekodmzk",
-      "name": "ts",
-      "parentId": "mj02h2crjfc7l5dmb9o",
-      "sortOrder": 6
-    },
-    {
-      "id": "mj02jioi8arflfpaq7",
-      "name": "css",
-      "parentId": "mj02fqjphlkolq6z0kk",
-      "sortOrder": 7
-    },
-    {
-      "id": "mj02kbd7xvvkihgk3o",
-      "name": "css",
-      "parentId": "mj02h2crjfc7l5dmb9o",
-      "sortOrder": 9
-    },
-    {
-      "id": "mj02kel7bjyk4hingd",
-      "name": "html",
-      "parentId": "mj02h2crjfc7l5dmb9o",
-      "sortOrder": 10
     }
   ],
   "bookmarks": [
@@ -68,94 +32,104 @@
       "sortOrder": 4
     },
     {
-      "id": "miekf3w4zptebrtzkh",
-      "name": "html sorty tab",
-      "file": "src/app/component/stories/stories-table/stories-table.component.html",
-      "line": 5,
-      "character": 18,
-      "lineContent": "(view)=\"openStory($event)\"",
-      "folderId": "mj02hhnntrqt0ovu5zm",
-      "sortOrder": 1
+      "id": "mj1h5nyn9n9hgildg6q",
+      "name": "css FORM stories",
+      "file": "src/app/component/stories/story-form/story-form.component.css",
+      "line": 0,
+      "character": 9,
+      "lineContent": ".story-form {",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 17
     },
     {
-      "id": "miewdz0dma3xqy1cek",
-      "name": "ts story tab",
-      "file": "src/app/component/stories/stories-table/stories-table.component.ts",
-      "line": 13,
-      "character": 18,
-      "lineContent": "export class StoriesTableComponent {",
-      "folderId": "mj02hut2hhnxtu767p",
-      "sortOrder": 2
+      "id": "mj1h6fb92jiitld8lt5",
+      "name": "html FORM stories",
+      "file": "src/app/component/stories/story-form/story-form.component.html",
+      "line": 0,
+      "character": 28,
+      "lineContent": "<section class=\"story-form\">",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 18
     },
     {
-      "id": "mj02k1xk5kiej661fha",
-      "name": "css stories table",
-      "file": "src/app/component/stories/stories-table/stories-table.component.css",
-      "line": 11,
-      "character": 19,
-      "lineContent": "overflow: hidden;",
-      "folderId": "mj02jioi8arflfpaq7",
-      "sortOrder": 8
+      "id": "mj1h728vo9g8egzcabk",
+      "name": "ts FORM stories",
+      "file": "src/app/component/stories/story-form/story-form.component.ts",
+      "line": 0,
+      "character": 17,
+      "lineContent": "import { Component } from '@angular/core';",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 19
     },
     {
-      "id": "mj02kwzi45lzffyyen7",
-      "name": "html book",
+      "id": "mj1h9u72z4xzvcwoq5n",
+      "name": "ts FORM book",
+      "file": "src/app/component/books/children-book-form/children-book-form.component.ts",
+      "line": 0,
+      "character": 33,
+      "lineContent": "import { Component } from '@angular/core';",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 20
+    },
+    {
+      "id": "mj1ha28bpnyqjeta6p",
+      "name": "html FORM book",
+      "file": "src/app/component/books/children-book-form/children-book-form.component.html",
+      "line": 0,
+      "character": 22,
+      "lineContent": "<section class=\"story-form\">",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 21
+    },
+    {
+      "id": "mj1ha8hsxrx8wds38ad",
+      "name": "css FORM book",
+      "file": "src/app/component/books/children-book-form/children-book-form.component.css",
+      "line": 0,
+      "character": 13,
+      "lineContent": ".story-form {",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 22
+    },
+    {
+      "id": "mj1hjcsohyfjuz830kk",
+      "name": "html  COMP stories ",
+      "file": "src/app/component/stories/stories.component.html",
+      "line": 3,
+      "character": 20,
+      "lineContent": "<div class=\"view-toggle\">",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 23
+    },
+    {
+      "id": "mj1hl3kilcjzrqioqm",
+      "name": "html COMP book",
       "file": "src/app/component/books/children-book-list/children-book-list.component.html",
       "line": 0,
-      "character": 0,
-      "lineContent": "",
-      "folderId": "mj02kel7bjyk4hingd",
-      "sortOrder": 11
+      "character": 30,
+      "lineContent": "<section class=\"planoDeFundo\">",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 24
     },
     {
-      "id": "mj02l7tivga8qmcb62p",
-      "name": "ts book",
-      "file": "src/app/component/books/children-book-list/children-book-list.component.ts",
-      "line": 2,
-      "character": 6,
+      "id": "mj1hpjndwgkrxvrbinp",
+      "name": "ts COMPONENT stories",
+      "file": "src/app/component/stories/stories.component.ts",
+      "line": 18,
+      "character": 4,
       "lineContent": "@Component({",
-      "folderId": "mj02i5hhhdl5ekodmzk",
-      "sortOrder": 12
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 25
     },
     {
-      "id": "mj02lkfpb0s4p2b1fa",
-      "name": "css book",
-      "file": "src/app/component/books/children-book-list/children-book-list.component.css",
-      "line": 0,
-      "character": 0,
-      "lineContent": "",
-      "folderId": "mj02kbd7xvvkihgk3o",
-      "sortOrder": 13
-    },
-    {
-      "id": "mj02vucxuikw99bxfj",
-      "name": "css stories component ",
-      "file": "src/app/component/stories/stories.component.css",
+      "id": "mj1hqltriyde71l0sm",
+      "name": "ts COMP book",
+      "file": "src/app/component/books/children-book-list/children-book-list.component.ts",
       "line": 0,
       "character": 40,
-      "lineContent": "/* container principal com fundo fixo */",
-      "folderId": "mj02jioi8arflfpaq7",
-      "sortOrder": 14
-    },
-    {
-      "id": "mj02xd8hs0gkv9paz8h",
-      "name": "ts stories component",
-      "file": "src/app/component/stories/stories.component.ts",
-      "line": 0,
-      "character": 18,
-      "lineContent": "import { Component, OnInit } from '@angular/core';",
-      "folderId": "mj02hut2hhnxtu767p",
-      "sortOrder": 15
-    },
-    {
-      "id": "mj02zbwgdyg4vv9nbau",
-      "name": "html stories component",
-      "file": "src/app/component/stories/stories.component.html",
-      "line": 0,
-      "character": 25,
-      "lineContent": "<section class=\"stories\">",
-      "folderId": "mj02hhnntrqt0ovu5zm",
-      "sortOrder": 16
+      "lineContent": "import { Component } from '@angular/core';",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 26
     }
   ]
 }
