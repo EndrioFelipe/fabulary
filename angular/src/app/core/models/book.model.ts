@@ -9,4 +9,5 @@ export interface Book {
   language?: string;
   status: 'DRAFT' | 'PUBLISHED';
   cover: File | null;
+  value: number;
 }

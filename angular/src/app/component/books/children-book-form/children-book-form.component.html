@@ -1,10 +1,44 @@
 <section class="story-form">
   <div class="overlay">
-    <h1>Novo Livro Infanto-Juvenil</h1>
-
+    
+    <!-- 
+     id: number;
+  title: string;
+  content?: string;
+  authorName: string;
+  ageRange: AgeRange;
+  language?: string;
+  status: 'DRAFT' | 'PUBLISHED';
+  cover: File | null;
+  value: string;
+}
+    
+    -->
+    
+    <h1>Novo Livro Infanto-Juvenil111</h1>
     <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label (mouseenter)="showFormat = true" (mouseleave)="showFormat = false">Valor</mat-label>
+            {{bookForm.get('value')?.value}}
+        <mat-hint *ngIf="showFormat && numero !== null">
+          Formatado: {{ numero | currency:'BRL':'symbol':'1.2-2' }}
+        </mat-hint>
+        <input formControlName="value" matInput rows="8"  (blur)="teste()"/>
+      </mat-form-field>
 
-
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Faixa etária</mat-label>
+        <mat-select formControlName="ageRange">
+          <mat-option *ngFor="let age of ageRanges" [value]="age.value">
+            {{ age.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
       <button mat-raised-button color="primary" type="submit" [disabled]="bookForm.invalid">
         Salvar
       </button>

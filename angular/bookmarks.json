@@ -1,6 +1,6 @@
 {
   "version": "3.0.1",
-  "lastModified": "2025-12-11T13:45:38.432Z",
+  "lastModified": "2025-12-12T17:21:54.178Z",
   "folders": [
     {
       "id": "mj02fqjphlkolq6z0kk",
@@ -125,7 +125,7 @@
       "id": "mj1hqltriyde71l0sm",
       "name": "ts COMP book",
       "file": "src/app/component/books/children-book-list/children-book-list.component.ts",
-      "line": 0,
+      "line": 1,
       "character": 40,
       "lineContent": "import { Component } from '@angular/core';",
       "folderId": "mj02h2crjfc7l5dmb9o",
