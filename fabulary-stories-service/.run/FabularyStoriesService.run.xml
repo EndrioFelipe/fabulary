@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="FabularyStoriesService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="FabularyStoriesService" />
+    <module name="stories-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.fabulary.stories.FabularyStoriesServiceApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

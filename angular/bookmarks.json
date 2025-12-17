@@ -1,0 +1,145 @@
+{
+  "version": "3.0.1",
+  "lastModified": "2025-12-15T13:39:48.118Z",
+  "folders": [
+    {
+      "id": "mj02fqjphlkolq6z0kk",
+      "name": "stories",
+      "sortOrder": 1,
+      "color": "red"
+    },
+    {
+      "id": "mj02fwbp93prbpeghss",
+      "name": "1shared",
+      "sortOrder": 2
+    },
+    {
+      "id": "mj02h2crjfc7l5dmb9o",
+      "name": "books",
+      "sortOrder": 5,
+      "color": "blue"
+    }
+  ],
+  "bookmarks": [
+    {
+      "id": "miekeqjst9l3vey2uv",
+      "name": "ts data",
+      "file": "src/shared/components/data-table/data-table.component.ts",
+      "line": 22,
+      "character": 15,
+      "lineContent": "export class DataTableComponent implements OnInit, DoCheck {",
+      "folderId": "mj02fwbp93prbpeghss",
+      "sortOrder": 4
+    },
+    {
+      "id": "mj1h5nyn9n9hgildg6q",
+      "name": "css FORM stories",
+      "file": "src/app/component/stories/story-form/story-form.component.css",
+      "line": 0,
+      "character": 9,
+      "lineContent": ".story-form {",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 17
+    },
+    {
+      "id": "mj1h6fb92jiitld8lt5",
+      "name": "html FORM stories",
+      "file": "src/app/component/stories/story-form/story-form.component.html",
+      "line": 0,
+      "character": 28,
+      "lineContent": "<section class=\"story-form\">",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 18
+    },
+    {
+      "id": "mj1h728vo9g8egzcabk",
+      "name": "ts FORM stories",
+      "file": "src/app/component/stories/story-form/story-form.component.ts",
+      "line": 0,
+      "character": 17,
+      "lineContent": "import { Component } from '@angular/core';",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 19
+    },
+    {
+      "id": "mj1h9u72z4xzvcwoq5n",
+      "name": "ts FORM book",
+      "file": "src/app/component/books/children-book-form/children-book-form.component.ts",
+      "line": 0,
+      "character": 33,
+      "lineContent": "import { Component } from '@angular/core';",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 20
+    },
+    {
+      "id": "mj1ha28bpnyqjeta6p",
+      "name": "html FORM book",
+      "file": "src/app/component/books/children-book-form/children-book-form.component.html",
+      "line": 0,
+      "character": 22,
+      "lineContent": "<section class=\"story-form\">",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 21
+    },
+    {
+      "id": "mj1ha8hsxrx8wds38ad",
+      "name": "css FORM book",
+      "file": "src/app/component/books/children-book-form/children-book-form.component.css",
+      "line": 0,
+      "character": 13,
+      "lineContent": ".story-form {",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 22
+    },
+    {
+      "id": "mj1hjcsohyfjuz830kk",
+      "name": "html  COMP stories ",
+      "file": "src/app/component/stories/stories.component.html",
+      "line": 3,
+      "character": 20,
+      "lineContent": "<div class=\"view-toggle\">",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 23
+    },
+    {
+      "id": "mj1hl3kilcjzrqioqm",
+      "name": "html COMP book",
+      "file": "src/app/component/books/children-book-list/children-book-list.component.html",
+      "line": 0,
+      "character": 30,
+      "lineContent": "<section class=\"planoDeFundo\">",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 24
+    },
+    {
+      "id": "mj1hpjndwgkrxvrbinp",
+      "name": "ts COMPONENT stories",
+      "file": "src/app/component/stories/stories.component.ts",
+      "line": 18,
+      "character": 4,
+      "lineContent": "@Component({",
+      "folderId": "mj02fqjphlkolq6z0kk",
+      "sortOrder": 25
+    },
+    {
+      "id": "mj1hqltriyde71l0sm",
+      "name": "ts COMP book",
+      "file": "src/app/component/books/children-book-list/children-book-list.component.ts",
+      "line": 1,
+      "character": 40,
+      "lineContent": "import { Component } from '@angular/core';",
+      "folderId": "mj02h2crjfc7l5dmb9o",
+      "sortOrder": 26
+    },
+    {
+      "id": "mj7773x40oz3u3vphe2d",
+      "name": "pipe Uppercasetitle",
+      "file": "src/app/core/pipes/uppercase-title.pipe.ts",
+      "line": 6,
+      "character": 28,
+      "lineContent": "export class UppercaseTitlePipe implements PipeTransform {",
+      "folderId": "mj02fwbp93prbpeghss",
+      "sortOrder": 27
+    }
+  ]
+}

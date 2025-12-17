@@ -1,0 +1,313 @@
+/* container principal com fundo fixo */
+.stories {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+              url('../../../assets/image/bg-forest.jpg') center/cover no-repeat fixed;
+  backdrop-filter: blur(2px);
+  overflow-y: auto;
+  padding: 40px 0;
+}
+
+/* sobreposição escura */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  color: #f1e6cc;
+  font-size: 56px;
+  text-align: center;
+  letter-spacing: 4px;
+  text-shadow:
+    0 0 12px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(255, 200, 120, 0.3);
+  margin-top: 80px;      /* 👈 adiciona ou ajusta esse valor */
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+/* leve animação de aparição */
+@keyframes fadeTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* lista de cards */
+.story-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.story-card {
+  position: relative;
+  width: 420px;
+  height: 620px;
+  color: #f1e6cc;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  box-shadow:
+    inset 0 0 35px rgba(0, 0, 0, 0.8),
+    0 10px 25px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; 
+}
+
+
+.story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../../../assets/image/framegotico.png') center center no-repeat;
+  background-size: contain; /* 👈 antes era 100% 100%, que esticava */
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.story-inner {
+  position: relative;
+  z-index: 1;
+  width: 60%; 
+  height: 70%;
+  padding: 1rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.story-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* título do conto */
+.story-card h2,
+.story-card mat-card-title {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  font-size: 22px;
+  color: #f1e6cc;
+  font-family: 'Cinzel Decorative', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 6px rgba(0, 0, 0, 0.8),
+    0 0 14px rgba(255, 230, 180, 0.25);
+}
+
+/* conteúdo do conto */
+.story-card p,
+.story-card mat-card-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d4c9ad;
+  padding: 0 1rem;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* botões internos */
+.btn {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* centraliza o botão "novo conto" */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.actions button {
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 24px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+mat-card-actions button {
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 6px 16px;
+  transition: all 0.3s ease;
+  text-transform: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+button[color="primary"] {
+  background: linear-gradient(135deg, #2b2f77, #4a56b8);
+  color: #f8f8f8;
+}
+
+button[color="primary"]:hover {
+  background: linear-gradient(135deg, #3a41a7, #6671d1);
+  box-shadow: 0 0 18px rgba(100, 110, 220, 0.6);
+}
+
+.delete-button {
+  background: none !important; 
+  border: none;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.delete-button img {
+  width: 40px;
+  height: 40px;
+}
+
+.delete-button span {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.delete-button:hover {
+  background: linear-gradient(135deg, #8a1c1c, #c72a2a);
+  box-shadow: 0 0 50px rgba(255, 50, 50, 0.6);
+}
+
+.new-story-btn {
+  background: linear-gradient(145deg, #7c1d4b, #d04e87);
+  color: #f1e6cc;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 20px rgba(208, 78, 135, 0.5),
+    inset 0 0 10px rgba(255, 180, 220, 0.3);
+  transition: all 0.3s ease;
+}
+
+.story-card::after {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.story-card mat-card-actions {
+  margin-top: 1.5rem;
+  padding-bottom: 0.8rem;
+}
+
+.new-story-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 30px rgba(255, 100, 180, 0.6),
+    inset 0 0 12px rgba(255, 220, 240, 0.4);
+}
+
+button[color="primary"]:hover {
+  background: linear-gradient(135deg, #3a41a7, #6671d1);
+  box-shadow: 0 0 18px rgba(100, 110, 220, 0.6);
+}
+
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #8a1c1c, #c72a2a);
+  box-shadow: 0 0 20px rgba(255, 50, 50, 0.6);
+}
+
+
+
+mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.delete-btn img {
+  filter: brightness(1.2);
+  margin-right: 6px;
+}
+
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.toggle-btn {
+  background: linear-gradient(145deg, #2c2e6b, #4f56b8);
+  color: #f1e6cc;
+  border-radius: 40px;
+  padding: 12px 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 20px rgba(50, 70, 180, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #3a41a7, #6671d1);
+  box-shadow:
+    0 0 30px rgba(100, 120, 220, 0.6),
+    inset 0 0 12px rgba(255, 255, 255, 0.2);
+}

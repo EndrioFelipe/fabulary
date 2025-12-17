@@ -1,0 +1,21 @@
+<section class="story-form">
+  <div class="overlay">
+    <h1>Novo Conto</h1>
+
+    <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Texto</mat-label>
+        <textarea matInput rows="8" formControlName="content"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="storyForm.invalid">
+        Salvar
+      </button>
+    </form>
+  </div>
+</section>

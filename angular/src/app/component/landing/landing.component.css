@@ -1,0 +1,31 @@
+.landing {
+  position: fixed; inset: 0;
+  background: url('../../../assets/image/bg-forest.jpg') center/cover no-repeat fixed;
+}
+
+.overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.45);
+  display: grid; place-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  color: #f3efe7; letter-spacing: .12em;
+  font-size: 42px; text-transform: uppercase;
+  text-shadow: 0 2px 18px rgba(0,0,0,.6);
+  margin-bottom: 20px;
+}
+
+.menu { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  border: 1px solid rgba(243,239,231,.35);
+  color: #f3efe7; padding: 10px 18px; border-radius: 999px;
+  background: rgba(243,239,231,.08);
+  backdrop-filter: blur(2px);
+  text-decoration: none;
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); background: rgba(243,239,231,.16); }

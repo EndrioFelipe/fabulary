@@ -1,0 +1,300 @@
+.table-wrapper {
+  width: 92%;
+  margin: 2rem auto;
+  background: radial-gradient(circle at top, #0c0a08, #000);
+  color: #d6c89a;
+  border: 1px solid rgba(189, 163, 101, 0.4);
+  border-radius: 10px;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(0, 0, 0, 0.8);
+  font-family: 'Cinzel', serif;
+  overflow: hidden;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(189, 163, 101, 0.4);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+th {
+  background: linear-gradient(180deg, #1a140b, #0e0c07);
+  color: #e8d7a4;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 1rem;
+  border-top: 1px solid rgba(189, 163, 101, 0.35);
+  border-bottom: 1px solid rgba(189, 163, 101, 0.35);
+}
+
+td {
+  color: #d8ccb0;
+  font-size: 15px;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid rgba(189, 163, 101, 0.12);
+  background: rgba(10, 10, 10, 0.85);
+  vertical-align: middle;
+}
+
+tr:hover td {
+  background: rgba(189, 163, 101, 0.08);
+  transition: all 0.25s ease;
+}
+
+.table-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.2rem 2rem 0.5rem 2rem;
+}
+
+.filter-field {
+  width: 280px;
+}
+
+.mat-mdc-text-field-wrapper {
+  background: rgba(30, 25, 20, 0.85);
+  border: 1px solid rgba(189, 163, 101, 0.4);
+  color: #e8d7a4 !important;
+}
+
+.filter-field input.mat-mdc-input-element {
+  color: #e8d7a4 !important;   
+  caret-color: #e8d7a4 !important;
+}
+
+.filter-field input.mat-mdc-input-element::placeholder {
+  color: rgba(232, 215, 164, 0.6) !important;
+}
+
+.filter-field .mat-mdc-floating-label {
+  color: #c7b47f !important;   
+  opacity: 0.85 !important;
+}
+
+.mat-icon {
+  color: #e8d7a4 !important;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.action-buttons button:hover .mat-icon {
+  color: #ffdc73 !important;
+  transform: scale(1.15);
+}
+
+.mat-mdc-paginator {
+  background: linear-gradient(180deg, #0c0a08 0%, #000 100%) !important;
+  color: #d8ccb0 !important;
+  border-top: 1px solid rgba(189, 163, 101, 0.3);
+  font-family: 'Cinzel', serif;
+}
+
+.mat-mdc-paginator-container,
+.mat-mdc-paginator-page-size,
+.mat-mdc-paginator-range-actions {
+  background: transparent !important;
+}
+
+.mat-mdc-paginator-icon:hover {
+  color: #ffdc73 !important;
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+button[mat-fab],
+button[mat-raised-button],
+button.mat-mdc-raised-button {
+  font-family: 'Cinzel Decorative', serif;
+  background: radial-gradient(circle at top, #8b2b5a, #4b1029);
+  color: #f1e6cc;
+  border: 1px solid rgba(255, 220, 230, 0.25);
+  box-shadow:
+    0 0 15px rgba(120, 40, 80, 0.7),
+    inset 0 0 5px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+button[mat-fab]:hover,
+button[mat-raised-button]:hover {
+  background: radial-gradient(circle at top, #a33a6b, #5c1532);
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 200, 230, 0.3);
+}
+
+.mat-mdc-table,
+.mat-mdc-row,
+.mat-mdc-header-row {
+  background-color: transparent !important;
+}
+
+
+.ng-tns-c28-0{
+  color: #e8d7a4 !important;
+  border-color: rgba(189, 163, 101, 0.5) !important;
+}
+
+.custom-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.custom-filter .filter-label {
+  font-family: 'Cinzel Decorative', serif;
+  align-self: flex-start;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #d4b86f;
+  margin-bottom: 0.35rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-filter .filter-input {
+  text-align: left !important;
+  width: 280px;
+  padding: 0.55rem 0.75rem;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: #e8d7a4;
+  background: rgba(20, 15, 10, 0.95);
+  border-radius: 6px;
+  border: 1.5px solid #d4b86f; 
+  outline: none;
+  transition: all 0.3s ease;
+  text-align: left;
+  box-shadow:
+    inset 0 0 6px rgba(0, 0, 0, 0.5),
+    0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+  border-color: #d4b86f !important;
+}
+
+.custom-filter .filter-input::placeholder {
+  color: rgba(232, 215, 164, 0.55);
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.custom-filter .filter-input:hover {
+  border-color: #e8d7a4;
+  box-shadow:
+    0 0 8px rgba(212, 184, 111, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.custom-filter .filter-input:focus {
+  border-color: #7a5fff; 
+  box-shadow:
+    0 0 10px rgba(122, 95, 255, 0.55),
+    inset 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.custom-filter:focus-within .filter-label {
+  color: #7a5fff; /* cor do foco */
+}
+
+.mat-mdc-paginator{
+    color: #d6c89a;
+}
+
+.mat-mdc-select-value {
+  color: #d6c89a !important;
+}
+
+.mat-mdc-paginator-navigation-first,
+.mat-mdc-paginator-navigation-previous,
+.mat-mdc-paginator-navigation-next,
+.mat-mdc-paginator-navigation-last,
+.mat-mdc-paginator-icon,
+.mat-mdc-paginator-range-actions,
+.mat-mdc-paginator-page-size-label,
+.mat-mdc-paginator-range-label,
+.mat-mdc-select-arrow {
+  color: #e8d7a4 !important;
+}
+
+.custom-paginator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(180deg, #0c0a08 0%, #000 100%);
+  color: #d6c89a;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  border-top: 1px solid rgba(189, 163, 101, 0.3);
+}
+
+.paginator-info {
+  opacity: 0.85;
+  letter-spacing: 1px;
+}
+
+.paginator-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.paginator-controls button {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 15px;
+  color: #e8d7a4;
+  background: rgba(20, 15, 10, 0.85);
+  border: 1px solid rgba(189, 163, 101, 0.4);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 0 6px rgba(0, 0, 0, 0.6),
+    0 0 6px rgba(189, 163, 101, 0.2);
+}
+
+.paginator-controls button:hover:not(:disabled) {
+  border-color: #ffdc73;
+  color: #ffdc73;
+  transform: scale(1.1);
+}
+
+.paginator-controls button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.paginator-controls select {
+  background: rgba(20, 15, 10, 0.9);
+  border: 1px solid rgba(189, 163, 101, 0.4);
+  color: #e8d7a4;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginator-controls select:hover {
+  border-color: #ffdc73;
+  box-shadow: 0 0 6px rgba(189, 163, 101, 0.25);
+}
+
+.page-indicator {
+  color: #d4b86f;
+  text-shadow: 0 0 4px rgba(189, 163, 101, 0.25);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+
