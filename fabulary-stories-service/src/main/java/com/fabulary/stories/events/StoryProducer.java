@@ -15,6 +15,6 @@ public class StoryProducer {
 
     // Envia o evento (a "carta") para o Kafka (aa central dos correios)
     public void publishCreated(StoryCreatedEvent event) {
-        kafka.send("story.created", event.id().toString(), event);
+            kafka.send("story.created", event.id().toString(), event);
     }
 }
