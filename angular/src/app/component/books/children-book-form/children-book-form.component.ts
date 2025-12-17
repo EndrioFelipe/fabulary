@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AgeRange, ageRangeLabel  } from 'src/app/core/enums/age-range';
 import { MatSelectModule } from '@angular/material/select';
+import { UppercaseTitlePipe } from 'src/app/core/pipes/uppercase-title.pipe';
 
 @Component({
   selector: 'app-book-form',
@@ -19,15 +20,16 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule ,
-    MatSelectModule   
+    MatSelectModule,
+    UppercaseTitlePipe
   ],
   templateUrl: './children-book-form.component.html',
   styleUrls: ['./children-book-form.component.css']
 })
 export class ChildrenBookFormComponent {
   bookForm: FormGroup;
-
   numero:number = 2;
+  titleUppercased:string = '';
   showFormat: boolean = false;
   ageRanges = Object.values(AgeRange).map(value => ({
     value,
@@ -41,18 +43,25 @@ export class ChildrenBookFormComponent {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       value: [null, [Validators.required, Validators.min(0)]],
-      ageRange: ['', Validators.required]
+      ageRange: ['', Validators.required],
+      authorName: ['', Validators.required]
     });
   }
 
    onSubmit(): void {
   }
 
-  teste() {
+  comporHint() {
      let valor = this.bookForm.get('value')?.value;
     if(valor!==null){
       this.numero = Number(valor);
     }
+  }
 
+  transformToUpperCased(){
+     let valor = this.bookForm.get('title')?.value;
+    if(valor!==null){
+      this.titleUppercased = valor;
+    }
   }
 }

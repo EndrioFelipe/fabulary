@@ -1,6 +1,6 @@
 {
   "version": "3.0.1",
-  "lastModified": "2025-12-12T17:21:54.178Z",
+  "lastModified": "2025-12-15T13:39:48.118Z",
   "folders": [
     {
       "id": "mj02fqjphlkolq6z0kk",
@@ -130,6 +130,16 @@
       "lineContent": "import { Component } from '@angular/core';",
       "folderId": "mj02h2crjfc7l5dmb9o",
       "sortOrder": 26
+    },
+    {
+      "id": "mj7773x40oz3u3vphe2d",
+      "name": "pipe Uppercasetitle",
+      "file": "src/app/core/pipes/uppercase-title.pipe.ts",
+      "line": 6,
+      "character": 28,
+      "lineContent": "export class UppercaseTitlePipe implements PipeTransform {",
+      "folderId": "mj02fwbp93prbpeghss",
+      "sortOrder": 27
     }
   ]
 }

@@ -1,4 +1,4 @@
-.story-form {
+.book-form {
   position: fixed;
   inset: 0;
   background: url('../../../../assets/image/bg-forest.jpg') center/cover no-repeat fixed;
@@ -14,7 +14,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   width: 90%;
-  max-width: 500px;
+  max-width: 1000px;
   color: #fff;
   text-align: left;
 }
@@ -71,7 +71,11 @@ button:hover:not(:disabled) {
 }
 
 .full-width {
-  width: 100%;
+  width: 90%;
+}
+
+.mid-width {
+  width: 50%;
 }
 mat-form-field {
   margin-bottom: 1rem;
