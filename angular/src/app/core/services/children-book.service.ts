@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Story } from '../models/story.model';
 import { environment } from 'src/environment.development';
+import { Book } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChildrenBookService {
 
-  private apiUrl = environment.apiGateway + '/api/v1/stories';
+  private apiUrl = environment.apiGateway + '/api/v1/stories/children';
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Story[]> {
-    return this.http.get<Story[]>(this.apiUrl);
+  getAll(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.apiUrl);
   }
 
-  create(story: Story): Observable<Story> {
-    return this.http.post<Story>(this.apiUrl, story);
+  create(Book: Book): Observable<Book> {
+    return this.http.post<Book>(this.apiUrl, Book);
   }
 
-  getById(id: number): Observable<Story> {
-    return this.http.get<Story>(`${this.apiUrl}/${id}`);
+  getById(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/${id}`);
   }
 
-  update(id: number, story: Story): Observable<Story> {
-    return this.http.put<Story>(`${this.apiUrl}/${id}`, story);
+  update(id: number, Book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/${id}`, Book);
   }
 
   delete(id: number): Observable<void> {

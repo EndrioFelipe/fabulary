@@ -22,6 +22,7 @@ public class ChildrenBook {
 
     private BookStatus status;
 
+    @Column(name = "price")
     private BigDecimal value;
 
 

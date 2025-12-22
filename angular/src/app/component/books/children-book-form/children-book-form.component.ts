@@ -9,6 +9,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AgeRange, ageRangeLabel  } from 'src/app/core/enums/age-range';
 import { MatSelectModule } from '@angular/material/select';
 import { UppercaseTitlePipe } from 'src/app/core/pipes/uppercase-title.pipe';
+import { ChildrenBookService } from 'src/app/core/services/children-book.service';
+import { Book } from 'src/app/core/models/book.model';
 
 @Component({
   selector: 'app-book-form',
@@ -37,18 +39,43 @@ export class ChildrenBookFormComponent {
   }));
   
 
-  constructor(private fb: FormBuilder, private router: Router,
+  constructor(private fb: FormBuilder, private router: Router, private childrenBookService: ChildrenBookService,
     private snackBar: MatSnackBar 
   ) {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       value: [null, [Validators.required, Validators.min(0)]],
-      ageRange: ['', Validators.required],
+      // ageRange: ['', Validators.required],
       authorName: ['', Validators.required]
     });
   }
 
-   onSubmit(): void {
+  onSubmit(): void {
+    if (this.bookForm.valid) {
+      const newBook: Book = this.bookForm.value;
+
+      this.childrenBookService.create(newBook).subscribe({
+        next: (response) => {
+          console.log('✅ Conto criado com sucesso:', response);
+
+          this.snackBar.open('Conto salvo com sucesso!', 'Fechar', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['snackbar-success']
+          });
+
+
+          this.bookForm.reset();
+          this.router.navigate(['/stories']);
+        },
+        error: (err) => {
+          console.error('Erro ao criar conto:', err);
+        }
+      });
+    } else {
+      console.warn('Formulário inválido');
+    }
   }
 
   comporHint() {

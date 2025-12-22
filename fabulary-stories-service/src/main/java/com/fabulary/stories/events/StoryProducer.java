@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class StoryProducer {
 
-    private final KafkaTemplate<String, StoryCreatedEvent> kafka;
+    private final KafkaTemplate<String, Object> kafka;
 
     //Producer (Produtor) → Carteiro que coloca a carta na caixa
-    public StoryProducer(KafkaTemplate<String, StoryCreatedEvent> kafka) {
+    public StoryProducer(KafkaTemplate<String, Object> kafka) {
         this.kafka = kafka;
     }
 
