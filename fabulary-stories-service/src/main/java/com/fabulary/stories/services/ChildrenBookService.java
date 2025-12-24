@@ -3,17 +3,11 @@ package com.fabulary.stories.services;
 import com.fabulary.stories.enums.BookStatus;
 import com.fabulary.stories.events.ChildrenBookCreatedEvent;
 import com.fabulary.stories.events.ChildrenBookProducer;
-import com.fabulary.stories.events.StoryCreatedEvent;
-import com.fabulary.stories.events.StoryProducer;
-import com.fabulary.stories.exceptions.ResourceNotFoundException;
 import com.fabulary.stories.models.ChildrenBook;
-import com.fabulary.stories.models.Story;
 import com.fabulary.stories.repository.ChildrenBookRepository;
-import com.fabulary.stories.repository.StoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -38,7 +32,8 @@ public class ChildrenBookService {
                 saved.getContent(),
                 saved.getAuthorName(),
                 BookStatus.PUBLISHED,
-                new BigDecimal(1)
+                new BigDecimal(1),
+                saved.getAgeRange()
         );
 
         producer.publishCreated(event);

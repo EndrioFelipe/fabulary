@@ -11,11 +11,13 @@ public record ChildrenBookCreatedEvent(Long id,
 
                                        String content,
 
-                                       AgeRange authorName,
+                                       String authorName,
 
                                        BookStatus status,
 
-                                       BigDecimal value) {
+                                       BigDecimal value,
+
+                                       AgeRange ageRange) {
 
 
 }

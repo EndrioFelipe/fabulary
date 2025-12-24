@@ -18,12 +18,14 @@ public class ChildrenBook {
 
     private String content;
 
-    private AgeRange authorName;
+    private String authorName;
 
     private BookStatus status;
 
     @Column(name = "price")
     private BigDecimal value;
+
+    private AgeRange ageRange;
 
 
     public Long getId() {
@@ -40,14 +42,6 @@ public class ChildrenBook {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public AgeRange getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(AgeRange authorName) {
-        this.authorName = authorName;
     }
 
     public String getContent() {
@@ -70,7 +64,23 @@ public class ChildrenBook {
         return value;
     }
 
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
     public void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    public AgeRange getAgeRange() {
+        return ageRange;
+    }
+
+    public void setAgeRange(AgeRange ageRange) {
+        this.ageRange = ageRange;
     }
 }

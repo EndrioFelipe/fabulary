@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
+import { Book } from 'src/app/core/models/book.model';
+import { ChildrenBookService } from 'src/app/core/services/children-book.service';
 
 @Component({
   selector: 'app-children-book-list',
@@ -32,11 +34,72 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ChildrenBookListComponent {
 
-    constructor( private router: Router, private snackBar: MatSnackBar 
+  showTable = false;
+  childrenBooks: Book[] = [];
+  loading = false;
+  error: string | null = null;
+
+    constructor(private childrenBookService: ChildrenBookService, private router: Router, private snackBar: MatSnackBar 
     ) {}
 
-   createBook(): void {
+  createBook(): void {
     this.router.navigate(['/books/new']);
   }
 
+  ngOnInit(): void {
+    this.loadChildrenBook();
+  }
+
+  loadChildrenBook(): void {
+    this.loading = true;
+    this.error = null;
+
+    this.childrenBookService.getAll().subscribe({
+      next: (data) => {
+        this.childrenBooks = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar os contos:', err);
+        this.error = 'Não foi possível carregar os contos.';
+        this.loading = false;
+      }
+    });
+  }
+
+  openStory(story: Book): void {
+    this.router.navigate(['/stories/read', story.id]);
+  }
+
+  createStory(): void {
+    this.router.navigate(['/stories/new']);
+  }
+
+  deleteStory(id: number): void {
+    if (!confirm('Tem certeza que deseja excluir este conto?')) {
+      return;
+    }
+
+    this.childrenBookService.delete(id).subscribe({
+      next: () => {
+        this.snackBar.open('Conto excluído com sucesso!', 'Fechar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: 'snackbar-success'
+        });
+        this.loadChildrenBook(); 
+      },
+      error: (err) => {
+        console.error('Erro ao excluir conto:', err);
+        this.snackBar.open('Erro ao excluir o conto!', 'Fechar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: 'snackbar-error'
+        });
+      }
+    });
+
+  }
 }

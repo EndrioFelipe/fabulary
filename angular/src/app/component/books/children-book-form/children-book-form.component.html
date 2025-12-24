@@ -54,16 +54,16 @@
             </mat-form-field>
           </td>
 
-          <!-- <td>
-            <mat-form-field appearance="fill" class="full-width">
+          <td>
+            <mat-form-field appearance="fill">
               <mat-label>Faixa etária</mat-label>
               <mat-select formControlName="ageRange">
-                <mat-option *ngFor="let age of ageRanges" [value]="age.value">
-                  {{ age.label }}
+                <mat-option *ngFor="let range of ageRanges" [value]="range.value">
+                  {{ range.label }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          </td> -->
+          </td>
         </tr>
 
         <tr>

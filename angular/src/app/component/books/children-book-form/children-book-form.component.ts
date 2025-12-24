@@ -45,8 +45,8 @@ export class ChildrenBookFormComponent {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       value: [null, [Validators.required, Validators.min(0)]],
-      // ageRange: ['', Validators.required],
-      authorName: ['', Validators.required]
+      authorName: ['', Validators.required],
+      ageRange: [null, Validators.required] 
     });
   }
 
@@ -67,7 +67,7 @@ export class ChildrenBookFormComponent {
 
 
           this.bookForm.reset();
-          this.router.navigate(['/stories']);
+          this.router.navigate(['/books']);
         },
         error: (err) => {
           console.error('Erro ao criar conto:', err);
