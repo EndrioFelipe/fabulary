@@ -12,6 +12,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
 import { Book } from 'src/app/core/models/book.model';
 import { ChildrenBookService } from 'src/app/core/services/children-book.service';
+import { BooksTableComponent } from '../books-table/books-table.component';
 
 @Component({
   selector: 'app-children-book-list',
@@ -29,12 +30,13 @@ import { ChildrenBookService } from 'src/app/core/services/children-book.service
       MatProgressSpinnerModule,
       MatGridListModule,
       MatCardModule,
-      MatIconModule
+      MatIconModule,
+      BooksTableComponent
     ],
 })
 export class ChildrenBookListComponent {
 
-  showTable = false;
+  showTable = true;
   childrenBooks: Book[] = [];
   loading = false;
   error: string | null = null;

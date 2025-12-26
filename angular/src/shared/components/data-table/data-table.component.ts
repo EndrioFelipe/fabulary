@@ -28,7 +28,7 @@ export class DataTableComponent implements OnInit, DoCheck {
   @Input() filters: {
     label: string;
     field: string;
-    type?: 'text' | 'select' | 'date';
+    type?: 'text' | 'select' | 'date' | 'number';
     options?: string[];
   }[] = [];
   @Input() pageSizeOptions = [5, 10, 25];

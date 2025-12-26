@@ -1,0 +1,9 @@
+
+<app-data-table
+  [columns]="columns"
+  [data]="childrenBooks"
+  [filters]="filters"
+  (delete)="deleteChildrenBook($event)" 
+  (view)="openChildrenBook($event)"    
+  (filter)="applyFilter($event)">
+</app-data-table>
