@@ -2,8 +2,11 @@
 <app-data-table
   [columns]="columns"
   [data]="childrenBooks"
-  [filters]="filters"
   (delete)="deleteChildrenBook($event)" 
-  (view)="openChildrenBook($event)"    
-  (filter)="applyFilter($event)">
+  (view)="openChildrenBook($event)" >
 </app-data-table>
+
+<app-filter
+  [filters]="filters"
+  (filter)="applyFilter($event)">
+</app-filter>

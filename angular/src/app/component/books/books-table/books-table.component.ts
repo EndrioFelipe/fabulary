@@ -4,11 +4,12 @@ import { ChildrenBookService } from 'src/app/core/services/children-book.service
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from 'src/app/core/models/book.model';
 import { DataTableComponent } from 'src/shared/components/data-table/data-table.component';
+import { FilterComponent } from 'src/shared/components/filter/filter.component';
 
 @Component({
   selector: 'app-books-table',
   standalone: true,
-  imports: [DataTableComponent],
+  imports: [DataTableComponent, FilterComponent],
   templateUrl: './books-table.component.html',
   styleUrls: ['./books-table.component.css']
 })
