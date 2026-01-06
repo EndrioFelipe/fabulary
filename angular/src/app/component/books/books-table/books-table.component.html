@@ -1,4 +1,9 @@
 
+<app-filter
+  [filters]="filters"
+  (filter)="applyFilter($event)">
+</app-filter>
+
 <app-data-table
   [columns]="columns"
   [data]="childrenBooks"
@@ -6,7 +11,3 @@
   (view)="openChildrenBook($event)" >
 </app-data-table>
 
-<app-filter
-  [filters]="filters"
-  (filter)="applyFilter($event)">
-</app-filter>

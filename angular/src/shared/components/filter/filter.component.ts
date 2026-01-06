@@ -34,14 +34,29 @@ export class FilterComponent implements OnInit {
 
   @Output() view = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>(); 
-  @Output() filter = new EventEmitter<{ field: string; value: string }>();
+  @Output() filter = new EventEmitter<Record<string, any>>();
 
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = [];
   currentPage = 0;
+  activeFilters: Record<string, any> = {};
 
   @ViewChild(MatSort) sort!: MatSort;
+  
+  onFilterChange(field: string, event: Event): void {
+    const target = event.target as HTMLInputElement | HTMLSelectElement | null;
+    const value = target?.value ?? '';
 
+    // atualiza o estado interno
+    if (value !== '') {
+      this.activeFilters[field] = value;
+    } else {
+      delete this.activeFilters[field];
+    }
+
+    // emite TODOS os filtros ativos
+    this.filter.emit({ ...this.activeFilters });
+  }
   
   ngOnInit() {
   }
@@ -56,9 +71,5 @@ export class FilterComponent implements OnInit {
     this.delete.emit(item);
   }
 
-  onFilterChange(field: string, event: Event): void {
-    const target = event.target as HTMLInputElement | HTMLSelectElement | null;
-    const value = target?.value ?? '';
-    this.filter.emit({ field, value });
-  }
+ 
 }

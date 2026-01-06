@@ -1,6 +1,7 @@
 <div class="table-wrapper">
   <div class="table-header">
   <div class="filter-field custom-filter" *ngFor="let f of filters">
+    
     <label class="filter-label">{{ f.label }}</label>
 
     <input
@@ -11,6 +12,13 @@
       (keyup)="onFilterChange(f.field, $event)" 
     />
 
+    <input
+      *ngIf="f.type === 'number'"
+      type="number"
+      class="filter-input"
+      (change)="onFilterChange(f.field, $event)"
+    />
+
     <select
       *ngIf="f.type === 'select'"
       class="filter-input"
@@ -18,6 +26,7 @@
       <option value="">Todos</option>
       <option *ngFor="let option of f.options" [value]="option">{{ option }}</option>
     </select>
+    
 
     <input
       *ngIf="f.type === 'date'"

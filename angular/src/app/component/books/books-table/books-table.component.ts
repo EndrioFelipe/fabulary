@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from 'src/app/core/models/book.model';
 import { DataTableComponent } from 'src/shared/components/data-table/data-table.component';
 import { FilterComponent } from 'src/shared/components/filter/filter.component';
+import { AgeRange } from 'src/app/core/enums/age-range';
+import { BookFilter } from 'src/app/core/filters/book-filter';
 
 @Component({
   selector: 'app-books-table',
@@ -16,7 +18,9 @@ import { FilterComponent } from 'src/shared/components/filter/filter.component';
 export class BooksTableComponent {
   @Input() childrenBooks: Book[] = [];
   @Output() refresh = new EventEmitter<void>();
-
+  ageRanges: string[] = Object.values(AgeRange);
+  activeFilters: BookFilter = {};
+ 
   constructor(private childrenBookService: ChildrenBookService, private snackBar: MatSnackBar){}
 
   columns = [
@@ -24,19 +28,42 @@ export class BooksTableComponent {
     { field: 'title', header: 'Título' },
     { field: 'authorName', header: 'Nome do Autor' },
     { field: 'value', header: 'Valor' },
-    { field: 'ageRange', header: 'Faixa Etária' }
+    { field: 'ageRange', header: 'Faixa Etária' },
   ];
 
   filters: { field: string; label: string; type?: 'text' | 'select' | 'date' | 'number'; options?: string[] }[] = [
     { field: 'title', label: 'Título', type: 'text' },
     { field: 'value', label: 'Valor', type: 'number' },
     { field: 'authorName', label: 'Nome do Autor', type: 'text' },
-    { field: 'ageRange', label: 'Faixa Etária', type: 'select' },
+    { field: 'ageRange', label: 'Faixa Etária', type: 'select', options: this.ageRanges }
   ];
 
-  applyFilter(event: { field: string; value: string }) {
-    const { field, value } = event;
-    console.log(`Filtrar por ${field}: ${value}`);
+  
+
+  applyFilter(filtersReceived: Record<string, any>) {
+    const filter: BookFilter = {
+      title: filtersReceived['title'],
+      authorName: filtersReceived['authorName'],
+      value: filtersReceived['value']
+        ? Number(filtersReceived['value'])
+        : undefined,
+      ageRange: filtersReceived['ageRange']
+    };
+
+    this.childrenBookService.getFiltered(filter).subscribe({
+      next: (books) => {
+        this.childrenBooks = books;
+      },
+      error: (err) => {
+        console.error('Erro ao filtrar livros:', err);
+        this.snackBar.open('Erro ao filtrar livros!', 'Fechar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: 'snackbar-error'
+        });
+      }
+    });
   }
 
   openChildrenBook(book: Book) { console.log('Abrir livro', book); }

@@ -13,6 +13,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Book } from 'src/app/core/models/book.model';
 import { ChildrenBookService } from 'src/app/core/services/children-book.service';
 import { BooksTableComponent } from '../books-table/books-table.component';
+import { AgeRange } from 'src/app/core/enums/age-range';
 
 @Component({
   selector: 'app-children-book-list',
@@ -38,6 +39,7 @@ export class ChildrenBookListComponent {
 
   showTable = true;
   childrenBooks: Book[] = [];
+  
   loading = false;
   error: string | null = null;
 

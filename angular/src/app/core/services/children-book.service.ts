@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment.development';
 import { Book } from '../models/book.model';
+import { BookFilter } from '../filters/book-filter';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,17 @@ export class ChildrenBookService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  getFiltered(filters: BookFilter): Observable<Book[]> {
+    let params = new HttpParams();
+
+    Object.entries(filters).forEach(([key, val]) => {
+      if (val !== null && val !== undefined && val !== '') {
+        params = params.set(key, String(val));
+      }
+    });
+
+    return this.http.get<Book[]>(this.apiUrl, { params });
   }
 }

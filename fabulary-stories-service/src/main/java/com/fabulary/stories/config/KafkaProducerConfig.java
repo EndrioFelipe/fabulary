@@ -16,7 +16,7 @@ import java.util.Map;
 
 @Configuration
 public class KafkaProducerConfig {
-    @Value("${spring.kafka.bootstrap-servers}") //faz o spring escolher qual bootstrap server ativo no momento, se é o local ou o do dockwe
+    @Value("${spring.kafka.bootstrap-servers}") //faz o spring escolher qual bootstrap server ativo no momento, se é o local ou o do docker
     private String bootstrapServers;
 
     @Bean
