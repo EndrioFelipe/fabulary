@@ -20,6 +20,7 @@ export class BooksTableComponent {
   @Output() refresh = new EventEmitter<void>();
   ageRanges: string[] = Object.values(AgeRange);
   activeFilters: BookFilter = {};
+  @Output() applyfilterF1 = new EventEmitter<Record<string, any>>();
  
   constructor(private childrenBookService: ChildrenBookService, private snackBar: MatSnackBar){}
 
@@ -39,31 +40,12 @@ export class BooksTableComponent {
   ];
 
   
-
+  //@note FILHO 1 aplpy filter 
   applyFilter(filtersReceived: Record<string, any>) {
-    const filter: BookFilter = {
-      title: filtersReceived['title'],
-      authorName: filtersReceived['authorName'],
-      value: filtersReceived['value']
-        ? Number(filtersReceived['value'])
-        : undefined,
-      ageRange: filtersReceived['ageRange']
-    };
-
-    this.childrenBookService.getFiltered(filter).subscribe({
-      next: (books) => {
-        this.childrenBooks = books;
-      },
-      error: (err) => {
-        console.error('Erro ao filtrar livros:', err);
-        this.snackBar.open('Erro ao filtrar livros!', 'Fechar', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-          panelClass: 'snackbar-error'
-        });
-      }
-    });
+    this.activeFilters = filtersReceived;
+    console.log('this.activeFilters FILHO1')
+    console.log(this.activeFilters)
+    this.applyfilterF1.emit({ ...this.activeFilters });
   }
 
   openChildrenBook(book: Book) { console.log('Abrir livro', book); }

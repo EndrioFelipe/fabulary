@@ -46,6 +46,16 @@ public class ChildrenBookService {
         return repository.findAll();
     }
 
+    public List<ChildrenBook> filter(
+            String title,
+            String authorName,
+            BigDecimal value,
+            String ageRange
+    ) {
+        System.out.println("s");
+        return repository.filter(title, authorName, value, ageRange);
+    }
+
 //    public Story findById(Long id) {
 //        return repository.findById(id)
 //                .orElseThrow(() -> new ResourceNotFoundException("Story not found with id: " + id));

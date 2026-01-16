@@ -34,6 +34,7 @@ export class FilterComponent implements OnInit {
 
   @Output() view = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>(); 
+  //@note output filter do FILHO2
   @Output() filter = new EventEmitter<Record<string, any>>();
 
   dataSource!: MatTableDataSource<any>;
@@ -43,6 +44,7 @@ export class FilterComponent implements OnInit {
 
   @ViewChild(MatSort) sort!: MatSort;
   
+  // @note FILHO2 metodo filtro
   onFilterChange(field: string, event: Event): void {
     const target = event.target as HTMLInputElement | HTMLSelectElement | null;
     const value = target?.value ?? '';
@@ -55,6 +57,9 @@ export class FilterComponent implements OnInit {
     }
 
     // emite TODOS os filtros ativos
+    console.log('activeFilters FILHO2')
+    console.log(this.activeFilters)
+
     this.filter.emit({ ...this.activeFilters });
   }
   

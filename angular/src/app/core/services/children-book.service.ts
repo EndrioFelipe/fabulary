@@ -34,15 +34,18 @@ export class ChildrenBookService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  //@note SERVICE filtro 
   getFiltered(filters: BookFilter): Observable<Book[]> {
     let params = new HttpParams();
-
+    console.log('Object');
+    console.log(Object.entries(filters));
+      
     Object.entries(filters).forEach(([key, val]) => {
       if (val !== null && val !== undefined && val !== '') {
         params = params.set(key, String(val));
       }
     });
-
-    return this.http.get<Book[]>(this.apiUrl, { params });
+   
+    return this.http.get<Book[]>(this.apiUrl+"/filter", { params });
   }
 }

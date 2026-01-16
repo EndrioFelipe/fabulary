@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -35,5 +36,20 @@ public class ChildrenBookController {
         List<ChildrenBook> books = childrenBookService.findAll();
         return ResponseEntity.ok(books);
     }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<ChildrenBook>> filter(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String authorName,
+            @RequestParam(required = false) BigDecimal value,
+            @RequestParam(required = false) String ageRange
+    ) {
+        List<ChildrenBook> books = childrenBookService.filter(title, authorName, value, ageRange);
+
+        return ResponseEntity.ok(books);
+    }
+
+
+
 
 }
