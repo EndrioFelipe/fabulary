@@ -3,6 +3,7 @@ package com.fabulary.stories.enums;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+
 public enum AgeRange {
     THREE_TO_FIVE("THREE_TO_FIVE"),
     SIX_TO_EIGHT("SIX_TO_EIGHT"),

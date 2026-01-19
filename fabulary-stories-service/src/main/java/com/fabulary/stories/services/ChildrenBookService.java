@@ -1,5 +1,6 @@
 package com.fabulary.stories.services;
 
+import com.fabulary.stories.enums.AgeRange;
 import com.fabulary.stories.enums.BookStatus;
 import com.fabulary.stories.events.ChildrenBookCreatedEvent;
 import com.fabulary.stories.events.ChildrenBookProducer;
@@ -50,9 +51,8 @@ public class ChildrenBookService {
             String title,
             String authorName,
             BigDecimal value,
-            String ageRange
+            AgeRange ageRange
     ) {
-        System.out.println("s");
         return repository.filter(title, authorName, value, ageRange);
     }
 

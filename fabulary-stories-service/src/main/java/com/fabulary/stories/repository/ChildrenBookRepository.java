@@ -1,5 +1,6 @@
 package com.fabulary.stories.repository;
 
+import com.fabulary.stories.enums.AgeRange;
 import com.fabulary.stories.models.ChildrenBook;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,7 +27,7 @@ public interface ChildrenBookRepository extends JpaRepository<ChildrenBook, Long
             @Param("title") String title,
             @Param("authorName") String authorName,
             @Param("value") BigDecimal value,
-            @Param("ageRange") String ageRange
+            @Param("ageRange") AgeRange ageRange
     );
 
 

@@ -25,6 +25,8 @@ public class ChildrenBook {
     @Column(name = "price")
     private BigDecimal value;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "age_range")
     private AgeRange ageRange;
 
 

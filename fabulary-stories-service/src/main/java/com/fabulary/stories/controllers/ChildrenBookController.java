@@ -1,6 +1,7 @@
 package com.fabulary.stories.controllers;
 
 
+import com.fabulary.stories.enums.AgeRange;
 import com.fabulary.stories.models.ChildrenBook;
 import com.fabulary.stories.models.Story;
 import com.fabulary.stories.services.ChildrenBookService;
@@ -31,7 +32,7 @@ public class ChildrenBookController {
 
     @GetMapping
     public ResponseEntity<List<ChildrenBook>> getAllStories() {
-        // lista todos os contos salvos no banco
+        // lista todos os contos salvos no bancoa
         // aqui nao tem kafka nem nada, é só leitura
         List<ChildrenBook> books = childrenBookService.findAll();
         return ResponseEntity.ok(books);
@@ -42,7 +43,7 @@ public class ChildrenBookController {
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String authorName,
             @RequestParam(required = false) BigDecimal value,
-            @RequestParam(required = false) String ageRange
+            @RequestParam(required = false) AgeRange ageRange
     ) {
         List<ChildrenBook> books = childrenBookService.filter(title, authorName, value, ageRange);
 
