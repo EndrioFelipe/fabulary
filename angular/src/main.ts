@@ -6,7 +6,7 @@ import { AppComponent } from './app/app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { Routes, provideRouter } from '@angular/router';
 import { UserGuard } from './core/guards/authUser/user.guard';
 import { AuthInterceptor } from './core/interceptors/auth/auth.interceptor';
@@ -21,6 +21,8 @@ import { LandingComponent } from './app/component/landing/landing.component';
 import { StoryFormComponent } from './app/component/stories/story-form/story-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { httpErrorInterceptor } from './app/core/interceptors/http-error.interceptor';
+
 
 const routes: Routes = [
     { path: '', component: LandingComponent, pathMatch: 'full' },     
@@ -64,7 +66,10 @@ bootstrapApplication(AppComponent, {
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations()
+        provideAnimations(),
+        provideHttpClient(
+            withInterceptors([httpErrorInterceptor])
+            )
     ]
 })
     .catch(err => console.error(err));
